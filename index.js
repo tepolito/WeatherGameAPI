@@ -1,3 +1,5 @@
+const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
+
 function watchSubmit()
 {
 	$('.js-location-form').submit(function (event)
