@@ -48,11 +48,19 @@ function getDataFromDarkSky()
 
 function addSkycon(data)
 {
-	var s =data.currently.icon.toUpperCase().replace(/-/g, '_');
-	//$('body').append(`<canvas id="${s}" width="128" height="128"></canvas>`);
-	//skycons.add(document.getElementById(s), Skycons[s]);
-	skycons.add(s, Skycons[s]);
+
+	var s1 =data.currently.icon.toUpperCase().replace(/-/g, '_') + i;
+
+	console.log(s1);
+
+	$('body').append(`<canvas id="${s1}" width="128" height="128"></canvas>`);
+	var s2=s1.slice(0, -1);
+	console.log(s2, typeof s2);
+
+	skycons.add(document.getElementById(s1), Skycons[s2]);
+	//skycons.add(s, Skycons[s]);
 	skycons.play();
+
 }
 
 function watchSubmit()
