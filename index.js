@@ -1,22 +1,25 @@
 const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
-var skycons = new Skycons({"color": "pink"});
+var skycons = new Skycons({"color": "red"});
 
 function getDataFromDarkSky()
 {
-	let d =Math.floor(Date.now()/1000 + i*86400);
-	console.log(d, typeof d);
-	i++;
-	$.ajax({
-    type:"GET",
-    url: `https://api.darksky.net/forecast/6a31534b1bd30234128d6f4e569d2fa9/42.3601,-71.0589,${d}`,
-    success: function(data) {
-    	console.log(data);
-    	addSkycon(data);
-      //$('.text').text(JSON.stringify(data));
-    },
-    dataType: 'jsonp',
-  });
+	for(let i =0;i<30;i++)
+	{
+		let d =Math.floor(Date.now()/1000 + i*86400);
+		console.log(d, typeof d);
+		//i++;
+		$.ajax({
+	    type:"GET",
+	    url: `https://api.darksky.net/forecast/6a31534b1bd30234128d6f4e569d2fa9/42.3601,-71.0589,${d}`,
+	    success: function(data) {
+	    	console.log(data);
+	    	addSkycon(data);
+	      //$('.text').text(JSON.stringify(data));
+	    },
+	    dataType: 'jsonp',
+	  });
+	}
 }
 
 /*
@@ -50,11 +53,19 @@ function addSkycon(data)
 {
 
 	var s1 =data.currently.icon.toUpperCase().replace(/-/g, '_') + i;
-
+	i++;
 	console.log(s1);
 
 	$('body').append(`<canvas id="${s1}" width="128" height="128"></canvas>`);
-	var s2=s1.slice(0, -1);
+	
+	if(i <= 10)
+	{
+		var s2=s1.slice(0, -1);
+	}
+	else
+	{
+		var s2=s1.slice(0,-2);
+	}
 	console.log(s2, typeof s2);
 
 	skycons.add(document.getElementById(s1), Skycons[s2]);
