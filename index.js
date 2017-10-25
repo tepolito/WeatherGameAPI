@@ -2,8 +2,29 @@ const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
 var skycons = new Skycons({"color": "red"});
 
-function getDataFromDarkSky()
+function getDataFromGoogleMaps(locationText)
 {
+	geocoder = new google.maps.Geocoder();
+	geocoder.geocode({'address':locationText}, function (results, status)
+		{
+			if(status == 'OK')
+			{
+				console.log(results[0].geometry.location.toString(), typeof results[0].geometry.location.lat);
+				return results[0].geometry.location.toString();
+			}
+
+			else
+			{
+				alert(status);
+			}
+		});
+	
+}
+
+function getDataFromDarkSky(location)
+{
+
+	console.log(location, typeof location);
 	for(let i =0;i<30;i++)
 	{
 		let d =Math.floor(Date.now()/1000 + i*86400);
@@ -11,7 +32,7 @@ function getDataFromDarkSky()
 		//i++;
 		$.ajax({
 	    type:"GET",
-	    url: `https://api.darksky.net/forecast/6a31534b1bd30234128d6f4e569d2fa9/42.3601,-71.0589,${d}`,
+	    url: `https://api.darksky.net/forecast/6a31534b1bd30234128d6f4e569d2fa9/${location},${d}`,
 	    success: function(data) {
 	    	console.log(data);
 	    	addSkycon(data);
@@ -86,7 +107,9 @@ function watchSubmit()
 
 		console.log(query);
 
-		getDataFromDarkSky();
+		const loc = getDataFromGoogleMaps(query);
+
+		getDataFromDarkSky(loc);
 	});
 }
 
