@@ -3,6 +3,9 @@
 <head>
 	<title>Weather Game</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="ball.css">
 	<script
           src="https://code.jquery.com/jquery-3.2.1.min.js"
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -22,13 +25,21 @@
 		</div>
 
 		<form class="location-form js-location-form">
-			<input type="text" name="location" placeholder="Enter your location here" class="location-text js-location-text">
+			<input type="text" name="location" placeholder="Enter your location here" class="location-text js-location-text" value="Los Angeles">
 			<button type="submit" class="location-submit js-location-submit">Enter</button>
 		</form>
+
+		<div class="calendar">
+			
+		</div>
+
+		<div class="ball">
+		</div>
 	</main>
+	<script src="http://maps.google.com/maps/api/js?key=AIzaSyD6mjsbBFuOaMqhuUW5F1BbA6DFs2rbbWE"></script>
 	<script type="text/javascript" src="skycons.js"></script>
 	<script type="text/javascript" src="index.js"></script>
-	<script src="http://maps.google.com/maps/api/js?key=AIzaSyD6mjsbBFuOaMqhuUW5F1BbA6DFs2rbbWE"></script>
+	
 
 </body>
 </html>
