@@ -33,7 +33,7 @@ function getDataFromDarkSky(lat, long)
 	{
 		//console.log(loc, typeof loc);
 		let d =Math.floor(Date.now()/1000 + i*86400);
-		console.log(d, typeof d);
+		//console.log(d, typeof d);
 		//i++;
 	$.ajax({
 	    type:"GET",
@@ -80,7 +80,7 @@ function addSkycon(data)
 
 	var s1 =data.currently.icon.toUpperCase().replace(/-/g, '_') + i; //create canvas id 
 	i++; //increment the id number
-	console.log(s1);
+	//console.log(s1);
 
 	$('.calendar').append(`<canvas id="${s1}"></canvas>`);
 	
@@ -92,16 +92,35 @@ function addSkycon(data)
 	{
 		var s2=s1.slice(0,-2); 
 	}
-	console.log(s2, typeof s2);
+	//console.log(s2, typeof s2);
 
 	skycons.add(document.getElementById(s1), Skycons[s2]); //add the skycon to the body
-	//skycons.add(s, Skycons[s]);
-	//skycons.play(); //play the animation
 
 }
 
-//function watchSubmit()
-//{
+
+function watchButtonPress()
+{
+
+
+	$('.mover-container').on('click', $('.mover-button'), function(event) 
+	{
+	   /*if(event.keyCode == 68) 
+	   { // when d key is pressed 
+	    
+	      $('.ball').addClass('left')
+	      console.log('keypress worked');
+	  	}*/
+
+	  	console.log('mover button is working');
+	  	
+	});
+}	
+
+
+
+function watchSubmit()
+{
 	$('.js-location-form').submit(function (event) //when Enter is pressed
 	{
 		event.preventDefault();
@@ -114,9 +133,11 @@ function addSkycon(data)
 
 		const loc = getDataFromGoogleMaps(query); //get the latitude and longitude 
 
+		watchButtonPress();
+
 		//getDataFromDarkSky(loc); //send the location data to the dark sky api
 	});
-//}
+}
 
-//$(watchSubmit());
+$(watchSubmit());
 //getDataFromGoogleMaps('seattle');
