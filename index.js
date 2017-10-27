@@ -14,7 +14,6 @@ function getDataFromGoogleMaps(locationText)
 
 				console.log(lat, long);
 				getDataFromDarkSky(lat, long);
-				//return results[0].geometry.location.toString();
 			}
 
 			else
@@ -27,7 +26,6 @@ function getDataFromGoogleMaps(locationText)
 
 function getDataFromDarkSky(lat, long)
 {
-
 	$('.calendar').html('');
 	for(let i =0;i<30;i++)
 	{

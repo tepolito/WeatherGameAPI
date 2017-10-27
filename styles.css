@@ -26,4 +26,8 @@ canvas{
 	body{
 		max-width: 1000px;
 	}
+
+	canvas{
+		width: 120px;
+	}
 }
