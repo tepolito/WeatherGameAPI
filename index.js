@@ -41,7 +41,6 @@ function getDataFromDarkSky(lat, long)
 	    success: function(data) {
 	    	console.log(data);
 	    	addSkycon(data);
-	      //$('.text').text(JSON.stringify(data));
 	    },
 	    dataType: 'jsonp',
 	  });
@@ -102,19 +101,18 @@ function addSkycon(data)
 function watchButtonPress()
 {
 
-
-	$('.mover-container').on('click', $('.mover-button'), function(event) 
+	$('.mover-contatiner').on('click', $('.js-mover-button'), function (event)
 	{
+		console.log('mover button is working');
+		$('.ball').toggleClass('left');
+	})
+	
 	   /*if(event.keyCode == 68) 
 	   { // when d key is pressed 
 	    
 	      $('.ball').addClass('left')
 	      console.log('keypress worked');
 	  	}*/
-
-	  	console.log('mover button is working');
-	  	
-	});
 }	
 
 
@@ -133,11 +131,15 @@ function watchSubmit()
 
 		const loc = getDataFromGoogleMaps(query); //get the latitude and longitude 
 
-		watchButtonPress();
-
 		//getDataFromDarkSky(loc); //send the location data to the dark sky api
 	});
 }
 
-$(watchSubmit());
+function inputHandler()
+{
+	watchSubmit();
+	watchButtonPress();
+}
+
+$(inputHandler());
 //getDataFromGoogleMaps('seattle');
