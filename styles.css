@@ -18,7 +18,8 @@ canvas{
 }
 
 .calendar{
-	position: absolute;
+	position: fixed;
+	max-width: 840px;
 	top: 65%;
 	width: 80%;
 	margin-left: auto;

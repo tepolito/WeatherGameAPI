@@ -4,7 +4,7 @@
 
 .rnd-loc-1{ 
 	left: 50px;
-	bottom: 40px;
+	top: 40px;
 }
 
 .rnd-loc-2{
@@ -24,10 +24,15 @@
 
 .rnd-loc-5{
 	top: 500px;
-	left: 288px;
+	left: 220px;
 }
 
 .rnd-loc-6{
 	right: 41%;
 	bottom: 80%;
+}
+
+.rnd-loc-7{
+	left: 138px;
+	bottom: 299px;
 }

@@ -1,10 +1,11 @@
 const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
 var skycons = new Skycons({"color": "red"});
+let temp;
 
 function generateRandomNumber()
 {
-	return Math.floor((Math.random() * 6) + 1);
+	return Math.floor((Math.random() * 7) + 1);
 }
 
 function getDataFromGoogleMaps(locationText)
@@ -50,33 +51,6 @@ function getDataFromDarkSky(lat, long)
 	}
 }
 
-/*
-  var skycons = new Skycons({"color": "pink"});
-  // on Android, a nasty hack is needed: {"resizeClear": true}
-
-  // you can add a canvas by it's ID...
-  skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
-
-  // ...or by the canvas DOM element itself.
-  skycons.add(document.getElementById("icon2"), Skycons.RAIN);
-
-  // if you're using the Forecast API, you can also supply
-  // strings: "partly-cloudy-day" or "rain".
-
-  // start animation!
-  skycons.play();
-
-  // you can also halt animation with skycons.pause()
-
-  // want to change the icon? no problem:
-  skycons.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
-
-  // want to remove one altogether? no problem:
-  skycons.remove("icon2");
-
-  */
-
-
 function addSkycon(data)
 {
 
@@ -103,34 +77,85 @@ function addSkycon(data)
 
 function watchButtonPress()
 {
-	let temp;
 
 	$('.mover-container').on('click', $('.js-mover-button'), function (event)
 	{
 		console.log('mover button is working');
 		$('.ball').toggleClass('left');
 
-		if(!temp)
+		let rndNum = generateRandomNumber();
+		if(rndNum == 1)
 		{
-			let rndNum = generateRandomNumber();
 			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
-			let temp = rndNum;
+			$('.mover-container').removeClass(`rnd-loc-2`);
+			$('.mover-container').removeClass(`rnd-loc-3`);
+			$('.mover-container').removeClass(`rnd-loc-4`);
+			$('.mover-container').removeClass(`rnd-loc-5`);
+			$('.mover-container').removeClass(`rnd-loc-6`);
+			$('.mover-container').removeClass(`rnd-loc-7`);		
 		}
-		else
+		else if(rndNum == 2)
 		{
-			$('.mover-container').toggleClass(`rnd-loc-${temp}`);
 			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
-			let temp = rndNum;
+			$('.mover-container').removeClass(`rnd-loc-1`);
+			$('.mover-container').removeClass(`rnd-loc-3`);
+			$('.mover-container').removeClass(`rnd-loc-4`);
+			$('.mover-container').removeClass(`rnd-loc-5`);
+			$('.mover-container').removeClass(`rnd-loc-6`);
+			$('.mover-container').removeClass(`rnd-loc-7`);		
 		}
-		
+		else if(rndNum == 3)
+		{
+			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
+			$('.mover-container').removeClass(`rnd-loc-2`);
+			$('.mover-container').removeClass(`rnd-loc-1`);
+			$('.mover-container').removeClass(`rnd-loc-4`);
+			$('.mover-container').removeClass(`rnd-loc-5`);
+			$('.mover-container').removeClass(`rnd-loc-6`);
+			$('.mover-container').removeClass(`rnd-loc-7`);		
+		}
+		else if(rndNum == 4)
+		{
+			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
+			$('.mover-container').removeClass(`rnd-loc-2`);
+			$('.mover-container').removeClass(`rnd-loc-3`);
+			$('.mover-container').removeClass(`rnd-loc-1`);
+			$('.mover-container').removeClass(`rnd-loc-5`);
+			$('.mover-container').removeClass(`rnd-loc-6`);
+			$('.mover-container').removeClass(`rnd-loc-7`);		
+		}
+		else if(rndNum == 5)
+		{
+			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
+			$('.mover-container').removeClass(`rnd-loc-2`);
+			$('.mover-container').removeClass(`rnd-loc-3`);
+			$('.mover-container').removeClass(`rnd-loc-4`);
+			$('.mover-container').removeClass(`rnd-loc-1`);
+			$('.mover-container').removeClass(`rnd-loc-6`);
+			$('.mover-container').removeClass(`rnd-loc-7`);		
+		}
+		else if(rndNum == 6)
+		{
+			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
+			$('.mover-container').removeClass(`rnd-loc-2`);
+			$('.mover-container').removeClass(`rnd-loc-3`);
+			$('.mover-container').removeClass(`rnd-loc-4`);
+			$('.mover-container').removeClass(`rnd-loc-5`);
+			$('.mover-container').removeClass(`rnd-loc-1`);
+			$('.mover-container').removeClass(`rnd-loc-7`);		
+		}
+		else if(rndNum == 7)
+		{
+			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
+			$('.mover-container').removeClass(`rnd-loc-2`);
+			$('.mover-container').removeClass(`rnd-loc-3`);
+			$('.mover-container').removeClass(`rnd-loc-4`);
+			$('.mover-container').removeClass(`rnd-loc-5`);
+			$('.mover-container').removeClass(`rnd-loc-6`);
+			$('.mover-container').removeClass(`rnd-loc-1`);		
+		}	
 	})
 	
-	   /*if(event.keyCode == 68) 
-	   { // when d key is pressed 
-	    
-	      $('.ball').addClass('left')
-	      console.log('keypress worked');
-	  	}*/
 }	
 
 
@@ -164,3 +189,29 @@ function inputHandler()
 
 $(inputHandler());
 //getDataFromGoogleMaps('seattle');
+
+/*
+  var skycons = new Skycons({"color": "pink"});
+  // on Android, a nasty hack is needed: {"resizeClear": true}
+
+  // you can add a canvas by it's ID...
+  skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
+
+  // ...or by the canvas DOM element itself.
+  skycons.add(document.getElementById("icon2"), Skycons.RAIN);
+
+  // if you're using the Forecast API, you can also supply
+  // strings: "partly-cloudy-day" or "rain".
+
+  // start animation!
+  skycons.play();
+
+  // you can also halt animation with skycons.pause()
+
+  // want to change the icon? no problem:
+  skycons.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
+
+  // want to remove one altogether? no problem:
+  skycons.remove("icon2");
+
+  */
