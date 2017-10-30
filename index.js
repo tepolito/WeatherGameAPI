@@ -2,6 +2,11 @@ const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
 var skycons = new Skycons({"color": "red"});
 
+function generateRandomNumber()
+{
+	return Math.floor((Math.random() * 4) + 1);
+}
+
 function getDataFromGoogleMaps(locationText)
 {
 	geocoder = new google.maps.Geocoder();
@@ -98,11 +103,26 @@ function addSkycon(data)
 
 function watchButtonPress()
 {
+	let temp;
 
-	$('.mover-contatiner').on('click', $('.js-mover-button'), function (event)
+	$('.mover-container').on('click', $('.js-mover-button'), function (event)
 	{
 		console.log('mover button is working');
 		$('.ball').toggleClass('left');
+
+		if(!temp)
+		{
+			let rndNum = generateRandomNumber();
+			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
+			let temp = rndNum;
+		}
+		else
+		{
+			$('.mover-container').toggleClass(`rnd-loc-${temp}`);
+			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
+			let temp = rndNum;
+		}
+		
 	})
 	
 	   /*if(event.keyCode == 68) 

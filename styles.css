@@ -13,7 +13,7 @@ body{
 	margin-right: auto;
 }
 canvas{
-	width: 64px;
+	width: 20%;
 	border: 1px solid blue;
 }
 
@@ -25,6 +25,12 @@ canvas{
 
 	body{
 		max-width: 1000px;
+	}
+
+	main{
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	canvas{

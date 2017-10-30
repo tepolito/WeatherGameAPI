@@ -1,0 +1,23 @@
+.mover-container{
+	position: absolute;
+}
+
+.rnd-loc-1{ 
+	left: 50px;
+	bottom: 40px;
+}
+
+.rnd-loc-2{
+	right: 75px;
+	top: 32px;
+}
+
+.rnd-loc-3{
+	left: 88px;
+	top: 122px;
+}
+
+.rnd-loc-4{
+	right: 139px;
+	bottom: 258px;
+}
