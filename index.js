@@ -149,6 +149,9 @@ function watchSubmit()
 
 		const loc = getDataFromGoogleMaps(query); //get the latitude and longitude 
 
+		$('.info-container').hide();
+		$('.location-form').hide();
+
 		//getDataFromDarkSky(loc); //send the location data to the dark sky api
 	});
 }
