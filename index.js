@@ -4,7 +4,7 @@ var skycons = new Skycons({"color": "red"});
 
 function generateRandomNumber()
 {
-	return Math.floor((Math.random() * 4) + 1);
+	return Math.floor((Math.random() * 6) + 1);
 }
 
 function getDataFromGoogleMaps(locationText)
