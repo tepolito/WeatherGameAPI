@@ -1,7 +1,9 @@
 const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
 var skycons = new Skycons({"color": "red"});
-let temp;
+var skyconsBig = new Skycons({"color": "yellow"});
+const ICON_ARR=[];
+var index =0;
 
 function generateRandomNumber()
 {
@@ -19,7 +21,14 @@ function getDataFromGoogleMaps(locationText)
 				let lat = results[0].geometry.location.lat();
 
 				console.log(lat, long);
-				getDataFromDarkSky(lat, long);
+				var deferreds = getDataFromDarkSky(lat, long)
+
+				$.when.apply(null, deferreds).done(function() 
+				{
+					$("div").append("<p>All done!</p>");
+					startGame();
+				});
+				//getDataFromDarkSky(lat, long);
 			}
 
 			else
@@ -32,6 +41,8 @@ function getDataFromGoogleMaps(locationText)
 
 function getDataFromDarkSky(lat, long)
 {
+	var promises = [];
+
 	$('.calendar').html('');
 	for(let i =0;i<30;i++)
 	{
@@ -39,26 +50,71 @@ function getDataFromDarkSky(lat, long)
 		let d =Math.floor(Date.now()/1000 + i*86400);
 		//console.log(d, typeof d);
 		//i++;
-	$.ajax({
-	    type:"GET",
-	    url: `https://api.darksky.net/forecast/6a31534b1bd30234128d6f4e569d2fa9/${lat}, ${long},${d}`,
-	    success: function(data) {
-	    	console.log(data);
-	    	addSkycon(data);
-	    },
-	    dataType: 'jsonp',
-	  });
+	promises.push(
+		$.ajax(
+		{
+		    type:"GET",
+		    url: `https://api.darksky.net/forecast/d9477455529c72ec124ab386f26597e8/${lat}, ${long},${d}`,
+		    success: function(data) {
+		    	console.log(data)
+		    //	ICON_ARR.push(addSkycon(data));
+		    	addSkycon(data)
+		    	//console.log(ICON_ARR[i]);
+		    },
+		    dataType: 'jsonp'
+	  })
+		)
+
 	}
+
+	return promises;
 }
 
 function addSkycon(data)
+{
+	let icon = data.currently.icon.toUpperCase().replace(/-/g, '_');
+	let date = Date.now();
+
+	$('.calendar').append(`<canvas id="${date}"></canvas>`);
+
+	ICON_ARR.push({id:date, icon:icon});
+
+	skycons.add(document.getElementById(date), Skycons[icon]);
+}
+
+function createToday()
+{
+	skyconsBig.set(document.getElementById('big-icon'), Skycons[ICON_ARR[index].icon]);
+	index++;
+	console.log(index);
+	skyconsBig.play();
+}
+
+function startGame()
+{
+	setInterval(createToday, 500);
+}
+
+/*$(function() 
+{
+    $('.js-mover-button').click(function() 
+    {
+        var deferreds = getDataFromDarkSky(lat, long)
+
+        $.when.apply(null, deferreds).done(function() 
+        {
+            $("div").append("<p>All done!</p>");
+        });
+    });
+});*/
+/*function addSkycon(data)
 {
 
 	var s1 =data.currently.icon.toUpperCase().replace(/-/g, '_') + i; //create canvas id 
 	i++; //increment the id number
 	//console.log(s1);
 
-	$('.calendar').append(`<canvas id="${s1}"></canvas>`);
+	//$('.calendar').append(`<canvas id="${s1}"></canvas>`);
 	
 	if(i <= 10)   // take of the id number
 	{
@@ -69,11 +125,16 @@ function addSkycon(data)
 		var s2=s1.slice(0,-2); 
 	}
 	//console.log(s2, typeof s2);
+	 let sky = skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
+	 console.log(`sky is ${sky}`);
 
-	skycons.add(document.getElementById(s1), Skycons[s2]); //add the skycon to the body
+	 $('.calendar').append(sky);
+	//skycons.add(document.getElementById(s1), Skycons[s2]); //add the skycon to the body
+
+	return s1;
 
 }
-
+*/
 
 function watchButtonPress()
 {
@@ -177,6 +238,8 @@ function watchSubmit()
 		$('.info-container').hide();
 		$('.location-form').hide();
 
+		setTimeout(function(){ createToday() } , 2000);
+
 		//getDataFromDarkSky(loc); //send the location data to the dark sky api
 	});
 }
@@ -212,6 +275,6 @@ $(inputHandler());
   skycons.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
 
   // want to remove one altogether? no problem:
-  skycons.remove("icon2");
+  skycons.remove("icon2"); */
 
-  */
+  
