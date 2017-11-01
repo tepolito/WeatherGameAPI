@@ -84,7 +84,7 @@ function addSkycon(data)
 
 function createToday()
 {
-	skyconsBig.set(document.getElementById('big-icon'), Skycons[ICON_ARR[index].icon]);
+	skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[index].icon]);
 	index++;
 	console.log(index);
 	skyconsBig.play();
