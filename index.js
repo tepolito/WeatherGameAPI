@@ -92,7 +92,8 @@ function createToday()
 
 function startGame()
 {
-	setInterval(createToday, 500);
+	//setInterval(createToday, 500);
+	createToday();
 }
 
 /*$(function() 
@@ -143,6 +144,8 @@ function watchButtonPress()
 	{
 		console.log('mover button is working');
 		$('.ball').toggleClass('left');
+
+		createToday();
 
 		let rndNum = generateRandomNumber();
 		if(rndNum == 1)
