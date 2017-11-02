@@ -143,7 +143,6 @@ function watchButtonPress()
 	$('.mover-container').on('click', $('.js-mover-button'), function (event)
 	{
 		console.log('mover button is working');
-		$('.ball').toggleClass('left');
 
 		createToday();
 

@@ -2,6 +2,7 @@
 var canvas = document.getElementById("canV"); 
 var ctx = canvas.getContext("2d");
 var mouseButton = 0;
+ 
 canvas.addEventListener('mousedown',function(event){mouseButton = event.which;});
 canvas.addEventListener('mouseup'  ,function(){mouseButton = 0;});
 canvas.addEventListener("contextmenu", function(e){ e.preventDefault();}, false);
@@ -97,7 +98,7 @@ var ballLastY = ballY;
 var ball = createColouredBall(ballR,Math.floor(Math.random()*360)); // create an image of ball
 
 // create a background. Image is small as it does not have much detail in it
-var background = createGradImage(16,"#5af","#08C");
+var background = createGradImage(16,"#fff","#000");
 // time to run for
 
 
@@ -137,7 +138,26 @@ var lastMaxHeight = ballY;
 var slowMotion = false;  // slow motion flag
 var frameTravel = true;  // use frame travel in collision test 
 const bSteps = 10;  // the fixed motion blur steps
+
+canvas.addEventListener('click', function(e) {
+        console.log('click: ' + e.offsetX + '/' + e.offsetY);
+        console.log(ballY,ballX,ballR);//
+        if(Math.pow(e.offsetX-ballX,2)+Math.pow(e.offsetY-ballY,2) < Math.pow(ballR,2))
+        {
+            console.log('hit');
+            createToday();
+        } 
+      /*  var rect = collides(rects, e.offsetX, e.offsetY);
+        if (rect) {
+            console.log('collision: ' + rect.x + '/' + rect.y);
+        } else {
+            console.log('no collision');
+        }*/
+    }, false);//
+
 var update = function(){
+
+    //console.log(ballY,ballX,ballR);//
     var str, blurSteps;
     blurSteps = 10;  // motion blur ball render steps. This varies depending on the the collision inter frame time. 
      
