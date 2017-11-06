@@ -1,3 +1,4 @@
+function init(){
 // helper functions. NOT part of the answer
 var canvas = document.getElementById("canV"); 
 var ctx = canvas.getContext("2d");
@@ -71,10 +72,13 @@ function createColouredBall (ballR,col) {
 //                              
 // ==================================
 // Answer code
-
+//canvas.width = $('main').width();
+//canvas.height = canvas.width;
 // lazy coder variables
 var w = canvas.width;
 var h = canvas.height;
+
+console.log(w, h);
 
 // ball is simulated 5cm 
 var pixSize = 0.24; // in millimeters for simulation
@@ -275,3 +279,4 @@ var update = function(){
     // all done
 }
 update(); // to start the ball rolling
+}

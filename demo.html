@@ -1,0 +1,96 @@
+
+<!doctype html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7" > <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" > <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="AMeijer.nl - Resizable HTML5 Canvas">
+  <meta name="author" content="Alex Ameijer on AMeijer.nl">
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="cleartype" content="on">
+  
+  <link rel="stylesheet" href="css/style.css?v=1">
+
+  <style>
+  	
+  	html, body{ margin:0px; padding:0px; }
+  	body{ display:block; width:100%; height:100%; }
+  	#main{ display:block; width:80%; padding:50px 10%; height:300px; }
+  	
+  </style>
+
+</head>
+<body>
+
+<div id="container">
+    <header>
+		<div id="logo">
+			<h1><a href="http://ameijer.nl/" class="ir">Alex Meijer</a></h1>
+		</div>
+    </header>
+    
+    <div id="main" role="main">
+	    <canvas id="canV" width="500" height="500">
+	    	<!-- Provide fallback -->
+	    </canvas>
+    </div>
+    
+    <footer>
+		<p><a href="http://ameijer.nl/2011/08/resizable-html5-canvas/">Read the entire article</a></p>
+		<p>Demo by <a href="http://ameijer.nl">AMeijer</a></p>
+    </footer>
+</div> <!--! end of #container -->
+  <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous">
+            
+          </script>
+  <script type="text/javascript">
+  	$(document).ready( function(){
+  		
+  		//Get the canvas & context
+  		var c = $('#canV');
+  		var ct = c.get(0).getContext('2d');
+  		var container = $(c).parent();
+  		
+  		//Run function when browser  resize
+	  	$(window).resize( canV );
+	  	
+	  	function canV(){
+  			c.attr('width', $(container).width() ); //max width
+  			c.attr('height', $(container).height() ); //max height
+  			
+  			//Redraw & reposition content
+  			var x = c.width();
+  			var y = c.height();  			
+  			ct.font = "20px Calibri";
+  			
+  			ct.fillStyle = "#DDDDDD"; //black
+  			ct.fillRect( 0, 0, x, y); //fill the canvas
+  			
+  			var resizeText = "Canvas width: "+c.width()+"px";
+  			ct.textAlign = "center";
+  			ct.fillStyle = "#333333"; //white
+	  		ct.fillText(resizeText, (x/2), (y/2) );
+
+        init();
+
+		}
+		
+		//Initial call
+		canV();
+  	});
+  	
+    
+  </script>
+  
+  <script type="text/javascript" src="bouncing.js"></script>
+
+</body>
+</html>

@@ -1,19 +1,24 @@
-.*{
+*{
 	box-sizing: border-box;
 }
 
+body{
+	margin: 0;
+	padding: 0;
+}
+
 header{
-	width: 100%;
 	text-align: center;
 }
 
-body{
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
+main{
+	width: 90%;
+	margin:auto;
+	border: 1px dashed red;
 }
+
 canvas{
-	width: 20%;
+	margin:auto;
 	border: 1px solid blue;
 }
 
@@ -31,25 +36,10 @@ canvas{
 	width: 100%;
 }
 
-.canC { width:500px;  height:500px;}
+.canC { 
+
+}
 
 @media screen and (min-width: 640px){
 	
-	html{
-		max-width: auto;
-	}
-
-	body{
-		max-width: 1000px;
-	}
-
-	main{
-		max-width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	canvas{
-		width: 120px;
-	}
 }
