@@ -32,6 +32,8 @@ header{
 	height:300px;
 }
 .calendar{
+	position: absolute;
+	bottom: 0;
 	margin-left: 50%;
 	display: inline-block; 
 	white-space: nowrap;
@@ -43,11 +45,6 @@ header{
     width: 50px;
 }
 
-.today-container{
-	height: 25%;
-}
-
 #today {
-	width: 50%;
-	margin-left: 25%;
+	width: 100%;
 }
