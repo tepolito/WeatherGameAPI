@@ -31,14 +31,20 @@ header{
 	width:100%; 
 	height:300px;
 }
-.calendar{
+
+.calendar-container{
+	width: 100%;
+	/*overflow: hidden;*/
 	position: absolute;
 	bottom: 0;
+}
+
+.calendar{
 	margin-left: 50%;
 	display: inline-block; 
 	white-space: nowrap;
 	width: 50%; 
-	overflow: hidden; 
+	/*overflow: hidden;*/
 } 
 .calendar canvas{
     display: inline-block;

@@ -67,6 +67,8 @@ function getDataFromDarkSky(lat, long)
 
 	}
 
+	//$('.calendar').css('overflow', 'hidden');
+
 	return promises;
 }
 
@@ -94,7 +96,7 @@ function startGame()
 {
 	//setInterval(createToday, 500);
 	createToday();
-	$(window).scroll(function()
+	$(window).scroll(function()  //makes it so the screen is locked in place. no scroll
 	{
         $(this).scrollTop($(window).scrollTop()).scrollLeft($(window).scrollLeft());
     });
