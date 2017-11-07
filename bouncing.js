@@ -81,7 +81,7 @@ var h = canvas.height;
 console.log(w, h);
 
 // ball is simulated 5cm 
-var pixSize = 0.24; // in millimeters for simulation
+var pixSize = 0.5; // in millimeters for simulation
 
 // Gravity is 9.8 ms^2 so convert to pixels per frame squared
 // Assuming constant 60 frames per second. ()
