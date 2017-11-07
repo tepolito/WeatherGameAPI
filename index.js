@@ -94,6 +94,10 @@ function startGame()
 {
 	//setInterval(createToday, 500);
 	createToday();
+	$(window).scroll(function()
+	{
+        $(this).scrollTop($(window).scrollTop()).scrollLeft($(window).scrollLeft());
+    });
 }
 
 /*$(function() 
@@ -239,6 +243,7 @@ function watchSubmit()
 
 		$('.info-container').hide();
 		$('.location-form').hide();
+		$('.today-container').show();
 
 		//setTimeout(function(){ createToday() } , 2000);
 
@@ -248,6 +253,7 @@ function watchSubmit()
 
 function inputHandler()
 {
+	$('.today-container').hide();
 	watchSubmit();
 	watchButtonPress();
 }
