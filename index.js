@@ -25,7 +25,7 @@ function getDataFromGoogleMaps(locationText)
 
 				$.when.apply(null, deferreds).done(function() 
 				{
-					$("div").append("<p>All done!</p>");
+					//$("div").append("<p>All done!</p>");
 					startGame();
 				});
 				//getDataFromDarkSky(lat, long);
@@ -85,9 +85,9 @@ function addSkycon(data)
 function createToday()
 {
 	skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[index].icon]);
-	index++;
 	console.log(index);
 	skyconsBig.play();
+	index++;
 }
 
 function startGame()
@@ -240,7 +240,7 @@ function watchSubmit()
 		$('.info-container').hide();
 		$('.location-form').hide();
 
-		setTimeout(function(){ createToday() } , 2000);
+		//setTimeout(function(){ createToday() } , 2000);
 
 		//getDataFromDarkSky(loc); //send the location data to the dark sky api
 	});

@@ -3,6 +3,7 @@ function init(){
 var canvas = document.getElementById("canV"); 
 var ctx = canvas.getContext("2d");
 var mouseButton = 0;
+let marginMover = -50;
  
 canvas.addEventListener('mousedown',function(event){mouseButton = event.which;});
 canvas.addEventListener('mouseup'  ,function(){mouseButton = 0;});
@@ -81,7 +82,7 @@ var h = canvas.height;
 console.log(w, h);
 
 // ball is simulated 5cm 
-var pixSize = 0.5; // in millimeters for simulation
+var pixSize = 0.5; // in millimeters for simulation     //
 
 // Gravity is 9.8 ms^2 so convert to pixels per frame squared
 // Assuming constant 60 frames per second. ()
@@ -148,8 +149,14 @@ canvas.addEventListener('click', function(e) {
         console.log(ballY,ballX,ballR);//
         if(Math.pow(e.offsetX-ballX,2)+Math.pow(e.offsetY-ballY,2) < Math.pow(ballR,2))
         {
+            let current =  $('.calendar').css('margin-left')
             console.log('hit');
             createToday();
+
+            console.log(`marginMover befor is ${marginMover}`);
+            $('.calendar').css('margin-left', `${marginMover}px`);
+            marginMover -= 50;
+            console.log(`marginMover after is ${marginMover}`);
         } 
       /*  var rect = collides(rects, e.offsetX, e.offsetY);
         if (rect) {

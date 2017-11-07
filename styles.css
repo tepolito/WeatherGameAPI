@@ -38,8 +38,7 @@ header{
 	scroll-behavior: none;
 } 
 .calendar canvas{
-    display: 
-    inline-block;
+    display: inline-block;
     width: 50px;
 }
 
