@@ -236,19 +236,19 @@ var update = function(){
     );
 
     // show max height. Yes it is min but everything is upside down.
-    maxHeight = Math.min(maxHeight,ballY);
-    lastMaxHeight = Math.min(ballY,lastMaxHeight);
+  //  maxHeight = Math.min(maxHeight,ballY);
+  //  lastMaxHeight = Math.min(ballY,lastMaxHeight);
 
     // show max height
-    ctx.font = "12px arial black";
-    ctx.beginPath();
-    ctx.moveTo(0, lastMaxHeight - ballR);
-    ctx.lineTo(w, lastMaxHeight - ballR);
-    ctx.stroke();
-    ctx.fillText("Max height.", 40, lastMaxHeight - ballR + 6);
+ //   ctx.font = "12px arial black";
+ //   ctx.beginPath();
+//   ctx.moveTo(0, lastMaxHeight - ballR);
+ //   ctx.lineTo(w, lastMaxHeight - ballR);
+ //   ctx.stroke();
+  //  ctx.fillText("Max height.", 40, lastMaxHeight - ballR + 6);
 
 
-    str = ""; // display status string
+ /*   str = ""; // display status string
     if(slowMotion){   // show left click help
         str += "10fps."
         ctx.fillText("click for 60fps.", textCenterX, 43);
@@ -268,13 +268,13 @@ var update = function(){
     // display help text
     ctx.font = "18px arial black";  
     ctx.strokeText(str, textCenterX, 30);
-    ctx.fillText(str, textCenterX, 28);
+    ctx.fillText(str, textCenterX, 28);   */
 
     if(slowMotion){
         setTimeout(update, 100); // show in slow motion
     }else{
         requestAnimationFrame(update); // request next frame (1/60) seconds from now
-    }
+    }  
 
     // all done
 }

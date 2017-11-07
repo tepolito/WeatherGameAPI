@@ -13,9 +13,10 @@ body{
 }
 
 header{
-	width: 100%
+	width: 100%;
 	margin: auto;
 	text-align: center;
+	height: 100px;
 }
 
 .info-container, .location-form{
@@ -40,4 +41,13 @@ header{
     display: 
     inline-block;
     width: 50px;
+}
+
+.today-container{
+	height: 25%;
+}
+
+#today {
+	width: 50%;
+	margin-left: 25%;
 }
