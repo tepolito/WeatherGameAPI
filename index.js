@@ -86,10 +86,30 @@ function addSkycon(data)
 
 function createToday()
 {
+	
+	if(!ICON_ARR[index])
+	{
+		return;
+	}
 	skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[index].icon]);
 	console.log(index);
 	skyconsBig.play();
+	scrollCalendar();
 	index++;
+}
+
+function scrollCalendar()
+{
+	
+	console.log(ICON_ARR[index]);
+	let id = ICON_ARR[index].id;
+	$('.calendar').animate({
+            scrollLeft: $("#"+id).offset().left+ $('.calendar').scrollLeft()
+
+        },
+            'slow');
+	
+	
 }
 
 function startGame()

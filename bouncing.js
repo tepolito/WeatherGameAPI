@@ -4,7 +4,9 @@ var canvas = document.getElementById("canV");
 var ctx = canvas.getContext("2d");
 var mouseButton = 0;
 let marginMover = 40; //
- 
+
+
+
 canvas.addEventListener('mousedown',function(event){mouseButton = event.which;});
 canvas.addEventListener('mouseup'  ,function(){mouseButton = 0;});
 canvas.addEventListener("contextmenu", function(e){ e.preventDefault();}, false);
@@ -44,11 +46,20 @@ var circle = function(x,y,r,how){
 }
 function createGradImage(size,col1,col2){
     var image = createImage(size);
-    var g = currentSurface.createLinearGradient(0,0,0,currentSurface.canvas.height);
+    /*var g = currentSurface.createLinearGradient(0,0,0,currentSurface.canvas.height);
     g.addColorStop(0,col1);
     g.addColorStop(1,col2);
-    currentSurface.fillStyle = g;
-    currentSurface.fillRect(0,0,currentSurface.canvas.width,currentSurface.canvas.height);    
+    currentSurface.fillStyle = g; */
+   // currentSurface.fillStyle= '#000'
+   var background = new Image();
+background.src = "http://7art-screensavers.com/screens/rainy-lightning-storm/Lightning-storm-clouds-in-the-dark-nigh.jpg";
+
+// Make sure the image is loaded first otherwise nothing will draw.
+background.onload = function(){
+    ctx.drawImage(background,0,0);   
+}
+    currentSurface.fillStyle = background;
+    currentSurface.fillRect(0,0,currentSurface.canvas.width,currentSurface.canvas.height);  
     return image;
 }
 function createColouredBall (ballR,col) {
@@ -89,6 +100,8 @@ var pixSize = 0.2; // in millimeters for simulation     //
 var gravity = 9800*pixSize/60; 
 gravity *= 0.101; // because Earth's gravity is stupidly large let's move to Pluto
 
+
+
 // ball 5cm 
 var ballR = (25/pixSize)/2;          // radius is 2.5cm for 5cm diamiter ball
 var ballX = w/2;                     // get center of canvas
@@ -98,6 +111,8 @@ ballDX += ballDX < 0 ? -5 : 5;       // make sure it's not too slow
 var ballDY = 0;                      // star with no downward speed;
 var ballLastX = ballX;
 var ballLastY = ballY;
+//gravity = 0; //
+//ballDX = 0; //
 
 //create an image of the Ball
 var ball = createColouredBall(ballR,Math.floor(Math.random()*360)); // create an image of ball
@@ -149,16 +164,17 @@ canvas.addEventListener('click', function(e) {
         console.log(ballY,ballX,ballR);//
         if(Math.pow(e.offsetX-ballX,2)+Math.pow(e.offsetY-ballY,2) < Math.pow(ballR,2))
         {
-            let current =  $('.calendar').css('margin-left')
             console.log('hit');
+
             createToday();
 
-            console.log(`marginMover befor is ${marginMover}`);
+
+            /*console.log(`marginMover befor is ${marginMover}`);
             $('.calendar').css('overflow', 'visible');
             $('.calendar').css('margin-left', `${marginMover}%`);
             marginMover -= 10;
             $('.calendar').css('overflow', 'hidden');
-            console.log(`marginMover after is ${marginMover}`);
+            console.log(`marginMover after is ${marginMover}`);*/
         } 
       /*  var rect = collides(rects, e.offsetX, e.offsetY);
         if (rect) {
