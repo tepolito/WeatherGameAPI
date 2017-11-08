@@ -13,7 +13,7 @@ body{
 	height:100%;
 	margin-left: auto;
 	margin-right: auto; 
-	background-color: deepskyblue;
+	background-color: royalblue;
 	color: lightcyan;
 }
 
@@ -43,9 +43,10 @@ header{
 }
 
 .js-calendar-info{
-	position: relative;
-	z-index: 1;
+	padding-top: 35px;
+	padding-bottom: 35px;
 	text-align: center;
+	text-shadow: -1, 1, black;
 }
 
 .calendar{
@@ -61,7 +62,6 @@ header{
 
 #today {
 	width: 100%;
-	position: relative;
 }
 
 .calendar::-webkit-scrollbar { 
