@@ -51,14 +51,8 @@ function createGradImage(size,col1,col2){
     g.addColorStop(1,col2);
     currentSurface.fillStyle = g; */
    // currentSurface.fillStyle= '#000'
-   var background = new Image();
-background.src = "http://7art-screensavers.com/screens/rainy-lightning-storm/Lightning-storm-clouds-in-the-dark-nigh.jpg";
-
-// Make sure the image is loaded first otherwise nothing will draw.
-background.onload = function(){
-    ctx.drawImage(background,0,0);   
-}
-    currentSurface.fillStyle = background;
+   
+    //currentSurface.fillStyle = background;
     currentSurface.fillRect(0,0,currentSurface.canvas.width,currentSurface.canvas.height);  
     return image;
 }
@@ -118,7 +112,15 @@ var ballLastY = ballY;
 var ball = createColouredBall(ballR,Math.floor(Math.random()*360)); // create an image of ball
 
 // create a background. Image is small as it does not have much detail in it
-var background = createGradImage(16,"#fff","#000");
+//var background = createGradImage(16,"#fff","#000");
+
+var background = new Image();
+background.src = "http://7art-screensavers.com/screens/rainy-lightning-storm/Lightning-storm-clouds-in-the-dark-nigh.jpg";
+
+// Make sure the image is loaded first otherwise nothing will draw.
+background.onload = function(){
+    ctx.drawImage(background,0,0);   
+}
 // time to run for
 
 
