@@ -112,7 +112,7 @@ var ballLastY = ballY;
 var ball = createColouredBall(ballR,Math.floor(Math.random()*360)); // create an image of ball
 
 // create a background. Image is small as it does not have much detail in it
-//var background = createGradImage(16,"#fff","#000");
+//var background = createGradImage(16,"#fff","#000"); //
 
 var background = new Image();
 background.src = "http://7art-screensavers.com/screens/rainy-lightning-storm/Lightning-storm-clouds-in-the-dark-nigh.jpg";

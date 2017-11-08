@@ -40,6 +40,12 @@ header{
 	bottom: 0;
 }
 
+.calendar-info{
+	position: relative;
+	z-index: 1;
+	text-align: center;
+}
+
 .calendar{
 	display: inline-block; 
 	white-space: nowrap;
@@ -53,6 +59,7 @@ header{
 
 #today {
 	width: 100%;
+	position: relative;
 }
 
 .calendar::-webkit-scrollbar { 
