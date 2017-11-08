@@ -75,11 +75,15 @@ function getDataFromDarkSky(lat, long)
 function addSkycon(data)
 {
 	let icon = data.currently.icon.toUpperCase().replace(/-/g, '_');
+	let temp = data.currently.temperature;
+	//console.log(`temperature is ${temp}`);
+	let stat = data.currently.summary;
+	//console.log(`the summary is ${stat}`);
 	let date = Date.now();
 
 	$('.calendar').append(`<canvas id="${date}"></canvas>`);
 
-	ICON_ARR.push({id:date, icon:icon});
+	ICON_ARR.push({id:date, icon:icon, temp:temp, stat:stat});
 
 	skycons.add(document.getElementById(date), Skycons[icon]);
 }
@@ -95,6 +99,12 @@ function createToday()
 	skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[index].icon]);
 	dataUrl = document.getElementById('today').toDataURL();
   	document.getElementById('calendar-info').style.background='url('+dataUrl+')';
+  	$('.js-calendar-info').css('background-repeat', 'no-repeat');
+  	$('.js-calendar-info').css('background-position', 'center');
+
+  	$('.js-calendar-info').append(`<p>Temperature: ${ICON_ARR[index].temp}F</p>`);
+  	$('.js-calendar-info').append(`<p>Summary: The weather is ${ICON_ARR[index].stat}</p>`);
+
 	console.log(index);
 	skyconsBig.play();
 	scrollCalendar();
@@ -268,7 +278,8 @@ function watchSubmit()
 
 		$('.info-container').hide();
 		$('.location-form').hide();
-		$('.today-container').show();
+		$('.js-calendar-info').show();
+		//$('.today-container').show();
 
 		//setTimeout(function(){ createToday() } , 2000);
 
@@ -278,6 +289,7 @@ function watchSubmit()
 
 function inputHandler()
 {
+	$('.js-calendar-info').hide();
 	$('.today-container').hide();
 	watchSubmit();
 	watchButtonPress();
