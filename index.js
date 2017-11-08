@@ -91,7 +91,10 @@ function createToday()
 	{
 		return;
 	}
+
 	skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[index].icon]);
+	dataUrl = document.getElementById('today').toDataURL();
+  	document.getElementById('calendar-info').style.background='url('+dataUrl+')';
 	console.log(index);
 	skyconsBig.play();
 	scrollCalendar();

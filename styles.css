@@ -40,7 +40,7 @@ header{
 	bottom: 0;
 }
 
-.calendar-info{
+.js-calendar-info{
 	position: relative;
 	z-index: 1;
 	text-align: center;
