@@ -6,7 +6,7 @@ const ICON_ARR=[];
 var index =0;
 
 var sound = new Howl({
-  src: ['sound.mp3']
+  src: ['rain-01.mp3']
 });
 
 sound.play();
