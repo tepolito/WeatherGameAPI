@@ -1,9 +1,15 @@
 const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
-var skycons = new Skycons({"color": "red"});
-var skyconsBig = new Skycons({"color": "yellow"});
+var skycons = new Skycons({"color": "white"});
+var skyconsBig = new Skycons({"color": "white"});
 const ICON_ARR=[];
 var index =0;
+
+var sound = new Howl({
+  src: ['sound.mp3']
+});
+
+sound.play();
 
 function generateRandomNumber()
 {
@@ -26,6 +32,12 @@ function getDataFromGoogleMaps(locationText)
 				$.when.apply(null, deferreds).done(function() 
 				{
 					//$("div").append("<p>All done!</p>");
+					ICON_ARR.forEach(function (sky)
+					{
+						$('.calendar').append(`<canvas id="${sky.id}"></canvas>`);
+						skycons.add(document.getElementById(sky.id), Skycons[sky.icon]);
+					})
+					
 					startGame();
 				});
 				//getDataFromDarkSky(lat, long);
@@ -57,8 +69,9 @@ function getDataFromDarkSky(lat, long)
 		    url: `https://api.darksky.net/forecast/d9477455529c72ec124ab386f26597e8/${lat}, ${long},${d}`,
 		    success: function(data) {
 		    	console.log(data)
+		    	console.log(`i is ${i}`);
 		    //	ICON_ARR.push(addSkycon(data));
-		    	addSkycon(data)
+		    	addSkycon(data, i)
 		    	//console.log(ICON_ARR[i]);
 		    },
 		    dataType: 'jsonp'
@@ -72,7 +85,7 @@ function getDataFromDarkSky(lat, long)
 	return promises;
 }
 
-function addSkycon(data)
+function addSkycon(data, i)
 {
 	let icon = data.currently.icon.toUpperCase().replace(/-/g, '_');
 	let temp = data.currently.temperature;
@@ -81,11 +94,15 @@ function addSkycon(data)
 	//console.log(`the summary is ${stat}`);
 	let date = Date.now();
 
-	$('.calendar').append(`<canvas id="${date}"></canvas>`);
+	let day = new Date(data.currently.time*1000);
+	console.log(day.customFormat("#DD#/#MM#/#YYYY# #hh#:#mm#:#ss#"))
+	day = day.customFormat("#MM#/#DD#");
 
-	ICON_ARR.push({id:date, icon:icon, temp:temp, stat:stat});
+	
 
-	skycons.add(document.getElementById(date), Skycons[icon]);
+	//ICON_ARR.push({id:date, icon:icon, temp:temp, stat:stat, day:day});
+	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day};
+	//skycons.add(document.getElementById(i), Skycons[icon]);
 }
 
 function createToday()
@@ -99,13 +116,15 @@ function createToday()
 	$('.js-calendar-info').html('');
 
 	skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[index].icon]);
-	dataUrl = document.getElementById('today').toDataURL();
+
+	/*dataUrl = document.getElementById('today').toDataURL();
   	document.getElementById('calendar-info').style.background='url('+dataUrl+')';
   	$('.js-calendar-info').css('background-repeat', 'no-repeat');
-  	$('.js-calendar-info').css('background-position', 'center');
+  	$('.js-calendar-info').css('background-position', 'center');*/
 
-  	$('.js-calendar-info').append(`<p>Temperature: ${ICON_ARR[index].temp}F</p>`);
-  	$('.js-calendar-info').append(`<p>Summary: The weather is ${ICON_ARR[index].stat}</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>${ICON_ARR[index].day}</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>Temperature: ${ICON_ARR[index].temp}F</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>Summary: The weather is ${ICON_ARR[index].stat}</p>`);
 
 	console.log(index);
 	skyconsBig.play();
@@ -281,7 +300,7 @@ function watchSubmit()
 		$('.info-container').hide();
 		$('.location-form').hide();
 		$('.js-calendar-info').show();
-		//$('.today-container').show();
+		$('.today-container').show();
 
 		//setTimeout(function(){ createToday() } , 2000);
 
@@ -324,4 +343,30 @@ $(inputHandler());
   // want to remove one altogether? no problem:
   skycons.remove("icon2"); */
 
+Date.prototype.customFormat = function(formatString){
+  var YYYY,YY,MMMM,MMM,MM,M,DDDD,DDD,DD,D,hhhh,hhh,hh,h,mm,m,ss,s,ampm,AMPM,dMod,th;
+  YY = ((YYYY=this.getFullYear())+"").slice(-2);
+  MM = (M=this.getMonth()+1)<10?('0'+M):M;
+  MMM = (MMMM=["January","February","March","April","May","June","July","August","September","October","November","December"][M-1]).substring(0,3);
+  DD = (D=this.getDate())<10?('0'+D):D;
+  DDD = (DDDD=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][this.getDay()]).substring(0,3);
+  th=(D>=10&&D<=20)?'th':((dMod=D%10)==1)?'st':(dMod==2)?'nd':(dMod==3)?'rd':'th';
+  formatString = formatString.replace("#YYYY#",YYYY).replace("#YY#",YY).replace("#MMMM#",MMMM).replace("#MMM#",MMM).replace("#MM#",MM).replace("#M#",M).replace("#DDDD#",DDDD).replace("#DDD#",DDD).replace("#DD#",DD).replace("#D#",D).replace("#th#",th);
+  h=(hhh=this.getHours());
+  if (h==0) h=24;
+  if (h>12) h-=12;
+  hh = h<10?('0'+h):h;
+  hhhh = hhh<10?('0'+hhh):hhh;
+  AMPM=(ampm=hhh<12?'am':'pm').toUpperCase();
+  mm=(m=this.getMinutes())<10?('0'+m):m;
+  ss=(s=this.getSeconds())<10?('0'+s):s;
+  return formatString.replace("#hhhh#",hhhh).replace("#hhh#",hhh).replace("#hh#",hh).replace("#h#",h).replace("#mm#",mm).replace("#m#",m).replace("#ss#",ss).replace("#s#",s).replace("#ampm#",ampm).replace("#AMPM#",AMPM);
+};
+
+var now = new Date;
+console.log( now.customFormat( "#DD#/#MM#/#YYYY# #hh#:#mm#:#ss#" ) );
+
+var time = new Date().getTime();
+var date = new Date(time);
+console.log(date.customFormat("#DD#/#MM#/#YYYY# #hh#:#mm#:#ss#"))
   

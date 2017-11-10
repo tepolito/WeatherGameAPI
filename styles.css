@@ -14,13 +14,16 @@ body{
 	margin-left: auto;
 	margin-right: auto; 
 	background-color: royalblue;
-	color: lightcyan;
+	/*color: lightcyan;*/
+	font-family: 'Play', sans-serif;
 }
 
 header{
 	width: 100%;
 	margin: auto;
 	text-align: center;
+	position: relative;
+    height: 105px;
 }
 
 .info-container, .location-form{
@@ -33,6 +36,7 @@ header{
 	display:block; 
 	width:100%; 
 	height:300px;
+
 }
 
 .calendar-container{
@@ -43,8 +47,6 @@ header{
 }
 
 .js-calendar-info{
-	padding-top: 35px;
-	padding-bottom: 35px;
 	text-align: center;
 	text-shadow: -1, 1, black;
 }
@@ -61,11 +63,30 @@ header{
 }
 
 #today {
-	width: 100%;
+	width: 75%;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 30px;
+    z-index: -1;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto; 
 }
 
 .calendar::-webkit-scrollbar { 
 	display: none; 
+}
+
+.c-info{
+	font-size: 24px;
+	margin: 0px;
+}
+
+#canV{
+	background: url('https://media.giphy.com/media/3osxYzIQRqN4DOEddC/giphy.gif');
+	background-size: cover;
+	background-position: center;
 }
 
 @media (min-width: 600px){

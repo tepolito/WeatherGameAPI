@@ -1,4 +1,4 @@
-function init(){
+function init(pixSize){
 // helper functions. NOT part of the answer
 var canvas = document.getElementById("canV"); 
 var ctx = canvas.getContext("2d");
@@ -22,6 +22,8 @@ var setColour = function (fillC, strokeC, lineW) {
     currentSurface.fillStyle = fillC !== undefined ? fillC : currentSurface.fillStyle;
     currentSurface.strokeStyle = strokeC !== undefined ? strokeC : currentSurface.strokeStyle;
     currentSurface.lineWidth = lineW !== undefined ? lineW : currentSurface.lineWidth;
+    
+    console.log(fillC);
 }
 var circle = function(x,y,r,how){
     currentSurface.beginPath();
@@ -62,6 +64,7 @@ function createColouredBall (ballR,col) {
     setColour("black");
     circle(ballR,ballR,ballR,"f");
     setColour("hsl("+col+",100%,30%)");
+    $('body').css({'background-color': "hsl("+col+",100%,30%)"})
     circle(ballR-unit*3,ballR-unit*3,ballR-unit*7,"f");
     setColour("hsl("+col+",100%,50%)");
     circle(ballR-unit*10,ballR-unit*10,ballR-unit*16,"f");
@@ -87,12 +90,12 @@ var h = canvas.height;
 console.log(w, h);
 
 // ball is simulated 5cm 
-var pixSize = 0.2; // in millimeters for simulation     //
+var pixSize = pixSize; // in millimeters for simulation     //
 
 // Gravity is 9.8 ms^2 so convert to pixels per frame squared
 // Assuming constant 60 frames per second. ()
 var gravity = 9800*pixSize/60; 
-gravity *= 0.101; // because Earth's gravity is stupidly large let's move to Pluto
+gravity *= 0.0101; // because Earth's gravity is stupidly large let's move to Pluto
 
 
 
@@ -112,14 +115,15 @@ var ballLastY = ballY;
 var ball = createColouredBall(ballR,Math.floor(Math.random()*360)); // create an image of ball
 
 // create a background. Image is small as it does not have much detail in it
-//var background = createGradImage(16,"#fff","#000"); //
+var background = createGradImage(16,"#fff","#000"); //
 
-var background = new Image();
-background.src = "http://7art-screensavers.com/screens/rainy-lightning-storm/Lightning-storm-clouds-in-the-dark-nigh.jpg";
-
+/* var background = new Image();
+background.src = "http://24.media.tumblr.com/tumblr_ma1wafniaA1rbonrno1_500.gif" //"http://7art-screensavers.com/screens/rainy-lightning-storm/Lightning-storm-clouds-in-the-dark-nigh.jpg";
+*/
 // Make sure the image is loaded first otherwise nothing will draw.
 background.onload = function(){
-    ctx.drawImage(background,0,0);   
+    ctx.globalAlpha = 0.4;
+    ctx.drawImage(background,0,0);
 }
 // time to run for
 
@@ -170,6 +174,7 @@ canvas.addEventListener('click', function(e) {
 
             createToday();
 
+            init(pixSize + .01);
 
             /*console.log(`marginMover befor is ${marginMover}`);
             $('.calendar').css('overflow', 'visible');
@@ -204,7 +209,8 @@ var update = function(){
         mouseButton = 0;
     }
     // clear the canvas with background canvas image
-    ctx.drawImage(background, 0, 0, w, h);
+   // ctx.drawImage(background, 0, 0, w, h);
+   ctx.clearRect(0, 0, w, h);
     
     ballDY += gravity; // acceleration due to grav
     // add deltas to ball position
@@ -253,7 +259,7 @@ var update = function(){
     }     
    
     // draw the ball motion blured
-    drawMotionBlur(
+    drawImage(
         ball,                    // image to draw
         ballX - ballR,             // offset radius
         ballY - ballR,
