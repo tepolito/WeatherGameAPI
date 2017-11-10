@@ -197,92 +197,6 @@ function startGame()
 }
 */
 
-function watchButtonPress()
-{
-
-	$('.mover-container').on('click', $('.js-mover-button'), function (event)
-	{
-		console.log('mover button is working');
-
-		createToday();
-
-		let rndNum = generateRandomNumber();
-		if(rndNum == 1)
-		{
-			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
-			$('.mover-container').removeClass(`rnd-loc-2`);
-			$('.mover-container').removeClass(`rnd-loc-3`);
-			$('.mover-container').removeClass(`rnd-loc-4`);
-			$('.mover-container').removeClass(`rnd-loc-5`);
-			$('.mover-container').removeClass(`rnd-loc-6`);
-			$('.mover-container').removeClass(`rnd-loc-7`);		
-		}
-		else if(rndNum == 2)
-		{
-			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
-			$('.mover-container').removeClass(`rnd-loc-1`);
-			$('.mover-container').removeClass(`rnd-loc-3`);
-			$('.mover-container').removeClass(`rnd-loc-4`);
-			$('.mover-container').removeClass(`rnd-loc-5`);
-			$('.mover-container').removeClass(`rnd-loc-6`);
-			$('.mover-container').removeClass(`rnd-loc-7`);		
-		}
-		else if(rndNum == 3)
-		{
-			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
-			$('.mover-container').removeClass(`rnd-loc-2`);
-			$('.mover-container').removeClass(`rnd-loc-1`);
-			$('.mover-container').removeClass(`rnd-loc-4`);
-			$('.mover-container').removeClass(`rnd-loc-5`);
-			$('.mover-container').removeClass(`rnd-loc-6`);
-			$('.mover-container').removeClass(`rnd-loc-7`);		
-		}
-		else if(rndNum == 4)
-		{
-			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
-			$('.mover-container').removeClass(`rnd-loc-2`);
-			$('.mover-container').removeClass(`rnd-loc-3`);
-			$('.mover-container').removeClass(`rnd-loc-1`);
-			$('.mover-container').removeClass(`rnd-loc-5`);
-			$('.mover-container').removeClass(`rnd-loc-6`);
-			$('.mover-container').removeClass(`rnd-loc-7`);		
-		}
-		else if(rndNum == 5)
-		{
-			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
-			$('.mover-container').removeClass(`rnd-loc-2`);
-			$('.mover-container').removeClass(`rnd-loc-3`);
-			$('.mover-container').removeClass(`rnd-loc-4`);
-			$('.mover-container').removeClass(`rnd-loc-1`);
-			$('.mover-container').removeClass(`rnd-loc-6`);
-			$('.mover-container').removeClass(`rnd-loc-7`);		
-		}
-		else if(rndNum == 6)
-		{
-			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
-			$('.mover-container').removeClass(`rnd-loc-2`);
-			$('.mover-container').removeClass(`rnd-loc-3`);
-			$('.mover-container').removeClass(`rnd-loc-4`);
-			$('.mover-container').removeClass(`rnd-loc-5`);
-			$('.mover-container').removeClass(`rnd-loc-1`);
-			$('.mover-container').removeClass(`rnd-loc-7`);		
-		}
-		else if(rndNum == 7)
-		{
-			$('.mover-container').toggleClass(`rnd-loc-${rndNum}`);
-			$('.mover-container').removeClass(`rnd-loc-2`);
-			$('.mover-container').removeClass(`rnd-loc-3`);
-			$('.mover-container').removeClass(`rnd-loc-4`);
-			$('.mover-container').removeClass(`rnd-loc-5`);
-			$('.mover-container').removeClass(`rnd-loc-6`);
-			$('.mover-container').removeClass(`rnd-loc-1`);		
-		}	
-	})
-	
-}	
-
-
-
 function watchSubmit()
 {
 	$('.js-location-form').submit(function (event) //when Enter is pressed
@@ -315,7 +229,6 @@ function inputHandler()
 	$('.js-calendar-info').hide();
 	$('.today-container').hide();
 	watchSubmit();
-	watchButtonPress();
 }
 
 $(inputHandler());
