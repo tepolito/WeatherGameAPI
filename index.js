@@ -177,6 +177,7 @@ function watchSubmit()
 		$('.location-form').hide();
 		$('.js-calendar-info').show();
 		$('.today-container').show();
+		$("#main").show();
 
 		//setTimeout(function(){ createToday() } , 2000);
 
@@ -186,6 +187,7 @@ function watchSubmit()
 
 function inputHandler()
 {
+	$("#main").hide();
 	$('.js-calendar-info').hide();
 	$('.today-container').hide();
 	watchSubmit();
