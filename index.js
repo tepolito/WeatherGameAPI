@@ -159,7 +159,7 @@ function startGame()
 
 function watchSubmit()
 {
-	document.getElementById("#location-form")..submit(function (event) //when Enter is pressed
+	document.getElementById("#location-form").submit(function (event) //when Enter is pressed
 	{
 		event.preventDefault();
 
