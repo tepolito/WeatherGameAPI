@@ -9,7 +9,7 @@ var sound = new Howl({
   src: ['rain-01.mp3']
 });
 
-sound.play();
+//sound.play();
 
 function generateRandomNumber()
 {
@@ -150,7 +150,6 @@ function scrollCalendar()
 
 function startGame()
 {
-	//setInterval(createToday, 500);
 	createToday();
 	$(window).scroll(function()  //makes it so the screen is locked in place. no scroll
 	{
