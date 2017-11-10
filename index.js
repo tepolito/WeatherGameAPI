@@ -156,50 +156,10 @@ function startGame()
     });
 }
 
-/*$(function() 
-{
-    $('.js-mover-button').click(function() 
-    {
-        var deferreds = getDataFromDarkSky(lat, long)
-
-        $.when.apply(null, deferreds).done(function() 
-        {
-            $("div").append("<p>All done!</p>");
-        });
-    });
-});*/
-/*function addSkycon(data)
-{
-
-	var s1 =data.currently.icon.toUpperCase().replace(/-/g, '_') + i; //create canvas id 
-	i++; //increment the id number
-	//console.log(s1);
-
-	//$('.calendar').append(`<canvas id="${s1}"></canvas>`);
-	
-	if(i <= 10)   // take of the id number
-	{
-		var s2=s1.slice(0, -1); 
-	}
-	else
-	{
-		var s2=s1.slice(0,-2); 
-	}
-	//console.log(s2, typeof s2);
-	 let sky = skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
-	 console.log(`sky is ${sky}`);
-
-	 $('.calendar').append(sky);
-	//skycons.add(document.getElementById(s1), Skycons[s2]); //add the skycon to the body
-
-	return s1;
-
-}
-*/
 
 function watchSubmit()
 {
-	$('.js-location-form').submit(function (event) //when Enter is pressed
+	document.getElementById("#location-form")..submit(function (event) //when Enter is pressed
 	{
 		event.preventDefault();
 
