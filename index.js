@@ -289,7 +289,7 @@ function watchSubmit()
 	{
 		event.preventDefault();
 
-		alert("hiii");
+		//alert("hiii");
 
 		const queryText = $(event.currentTarget).find(".js-location-text"); //get the value in the text box
 
