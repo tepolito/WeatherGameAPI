@@ -160,7 +160,7 @@ function startGame()
 
 function watchSubmit()
 {
-	document.getElementById("location-form").submit(function (event)
+	$(".js-location-form").submit(function (event)
 	{
 		event.preventDefault();
 
