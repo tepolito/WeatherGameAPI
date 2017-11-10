@@ -18,6 +18,7 @@ function generateRandomNumber()
 
 function getDataFromGoogleMaps(locationText)
 {
+	alert('getDataFromGoogleMaps called');
 	geocoder = new google.maps.Geocoder();
 	geocoder.geocode({'address':locationText}, function (results, status)
 		{
@@ -48,6 +49,8 @@ function getDataFromGoogleMaps(locationText)
 				alert(status);
 			}
 		});
+
+	alert("getDataFromGoogleMaps works");
 	
 }
 
@@ -163,7 +166,7 @@ function watchSubmit()
 	{
 		event.preventDefault();
 
-		//alert("hiii");
+		alert("watchSubmit works");
 
 		const queryText = $(event.currentTarget).find(".js-location-text"); //get the value in the text box
 
