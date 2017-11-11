@@ -178,7 +178,17 @@ function changeGif(i)
 		case 'RAIN': $('#canV').css('background', 'url(gifs/rainy.gif)');
 						  $('#canV').css('background-size', 'cover');
 						  $('#canV').css('background-position', 'center');
-						  break;				  					  				  	
+						  break;
+
+		case 'PARTLY_CLOUDY_NIGHT': $('#canV').css('background', 'url(gifs/overcast_moon.gif)');
+						  $('#canV').css('background-size', 'cover');
+						  $('#canV').css('background-position', 'center');
+						  break;
+
+		case 'CLEAR_NIGHT': $('#canV').css('background', 'url(gifs/clear_moon.gif)');
+						  $('#canV').css('background-size', 'cover');
+						  $('#canV').css('background-position', 'center');
+						  break;					  					  				  					  				  	
 	}
 }
 
