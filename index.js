@@ -178,6 +178,12 @@ function changeGif(i)
 		case 'RAIN': $('#canV').css('background', 'url(gifs/rainy.gif)');
 						  $('#canV').css('background-size', 'cover');
 						  $('#canV').css('background-position', 'center');
+
+						  var sound = new Howl({
+							  src: ['audio/rain.mp3']
+								});
+
+							sound.play();
 						  break;
 
 		case 'PARTLY_CLOUDY_NIGHT': $('#canV').css('background', 'url(gifs/overcast_moon.gif)');
@@ -185,7 +191,7 @@ function changeGif(i)
 						  $('#canV').css('background-position', 'center');
 
 						  var sound = new Howl({
-							  src: ['audio/owl.mp3']
+							  src: ['audio/owl.wav']
 								});
 
 							sound.play();
@@ -196,7 +202,7 @@ function changeGif(i)
 						  $('#canV').css('background-position', 'center');
 
 						  var sound = new Howl({
-							  src: ['audio/owl.mp3']
+							  src: ['audio/owl.wav']
 								});
 
 							sound.play();
