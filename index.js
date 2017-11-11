@@ -5,9 +5,9 @@ var skyconsBig = new Skycons({"color": "white"});
 const ICON_ARR=[];
 var index =0;
 
-var sound = new Howl({
+/*var sound = new Howl({
   src: ['rain-01.mp3']
-});
+}); */
 
 //sound.play();
 
@@ -183,11 +183,23 @@ function changeGif(i)
 		case 'PARTLY_CLOUDY_NIGHT': $('#canV').css('background', 'url(gifs/overcast_moon.gif)');
 						  $('#canV').css('background-size', 'cover');
 						  $('#canV').css('background-position', 'center');
+
+						  var sound = new Howl({
+							  src: ['audio/owl.mp3']
+								});
+
+							sound.play();
 						  break;
 
 		case 'CLEAR_NIGHT': $('#canV').css('background', 'url(gifs/clear_moon.gif)');
 						  $('#canV').css('background-size', 'cover');
 						  $('#canV').css('background-position', 'center');
+
+						  var sound = new Howl({
+							  src: ['audio/owl.mp3']
+								});
+
+							sound.play();
 						  break;					  					  				  					  				  	
 	}
 }
@@ -214,9 +226,6 @@ function watchSubmit()
 		$('.js-calendar-info').show();
 		$('.today-container').show();
 
-		//setTimeout(function(){ createToday() } , 2000);
-
-		//getDataFromDarkSky(loc); //send the location data to the dark sky api
 	});
 }
 
@@ -228,7 +237,6 @@ function inputHandler()
 }
 
 $(inputHandler());
-//getDataFromGoogleMaps('seattle');
 
 /*
   var skycons = new Skycons({"color": "pink"});
