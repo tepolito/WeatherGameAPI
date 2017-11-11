@@ -131,7 +131,7 @@ function createToday()
 	console.log(index);
 	skyconsBig.play();
 	scrollCalendar();
-	changeGif();
+	changeGif(index);
 	index++;
 }
 
@@ -158,7 +158,7 @@ function startGame()
     });
 }
 
-function changeGif()
+function changeGif(i)
 {
 	gif = ICON_ARR[i].icon;
 	console.log(`gif = ${gif}`);
@@ -173,7 +173,12 @@ function changeGif()
 		case 'PARTLY_CLOUDY_DAY': $('#canV').css('background', 'url(gifs/sun_and_cloud.gif)');
 						  $('#canV').css('background-size', 'cover');
 						  $('#canV').css('background-position', 'center');
-						  break;				  	
+						  break;
+
+		case 'RAIN': $('#canV').css('background', 'url(gifs/rainy.gif)');
+						  $('#canV').css('background-size', 'cover');
+						  $('#canV').css('background-position', 'center');
+						  break;				  					  				  	
 	}
 }
 
