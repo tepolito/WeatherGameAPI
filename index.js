@@ -5,12 +5,6 @@ var skyconsBig = new Skycons({"color": "white"});
 const ICON_ARR=[];
 var index =0;
 
-/*var sound = new Howl({
-  src: ['rain-01.mp3']
-}); */
-
-//sound.play();
-
 function generateRandomNumber()
 {
 	return Math.floor((Math.random() * 7) + 1);
@@ -82,8 +76,6 @@ function getDataFromDarkSky(lat, long)
 
 	}
 
-	//$('.calendar').css('overflow', 'hidden');
-
 	return promises;
 }
 
@@ -101,10 +93,8 @@ function addSkycon(data, i)
 	day = day.customFormat("#MM#/#DD#");
 
 	
-
-	//ICON_ARR.push({id:date, icon:icon, temp:temp, stat:stat, day:day});
 	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day};
-	//skycons.add(document.getElementById(i), Skycons[icon]);
+
 }
 
 function createToday()
