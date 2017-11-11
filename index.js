@@ -131,6 +131,7 @@ function createToday()
 	console.log(index);
 	skyconsBig.play();
 	scrollCalendar();
+	changeGif();
 	index++;
 }
 
@@ -164,7 +165,15 @@ function changeGif()
 
 	switch(gif)
 	{
-		case CLEAR_DAY: $('#canV').css('background', 'url(gifs/sun_clear)';
+		case 'CLEAR_DAY': $('#canV').css('background', 'url(gifs/sun_clear.gif)');
+						  $('#canV').css('background-size', 'cover');
+						  $('#canV').css('background-position', 'center');
+						  break;
+
+		case 'PARTLY_CLOUDY_DAY': $('#canV').css('background', 'url(gifs/sun_and_cloud.gif)');
+						  $('#canV').css('background-size', 'cover');
+						  $('#canV').css('background-position', 'center');
+						  break;				  	
 	}
 }
 
