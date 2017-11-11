@@ -157,6 +157,17 @@ function startGame()
     });
 }
 
+function changeGif()
+{
+	gif = ICON_ARR[i].icon;
+	console.log(`gif = ${gif}`);
+
+	switch(gif)
+	{
+		case CLEAR_DAY: $('#canV').css('background', 'url(gifs/sun_clear)';
+	}
+}
+
 
 function watchSubmit()
 {

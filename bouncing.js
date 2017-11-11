@@ -174,6 +174,8 @@ canvas.addEventListener('click', function(e) {
 
             createToday();
 
+            
+
             /*console.log(`marginMover befor is ${marginMover}`);
             $('.calendar').css('overflow', 'visible');
             $('.calendar').css('margin-left', `${marginMover}%`);
