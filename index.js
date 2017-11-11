@@ -168,11 +168,23 @@ function changeGif(i)
 		case 'CLEAR_DAY': $('#canV').css('background', 'url(gifs/sun_clear.gif)');
 						  $('#canV').css('background-size', 'cover');
 						  $('#canV').css('background-position', 'center');
+
+						  var sound = new Howl({
+							  src: ['audio/Bird-tweet-sound.mp3']
+								});
+
+							sound.play();
 						  break;
 
 		case 'PARTLY_CLOUDY_DAY': $('#canV').css('background', 'url(gifs/sun_and_cloud.gif)');
 						  $('#canV').css('background-size', 'cover');
 						  $('#canV').css('background-position', 'center');
+
+						  var sound = new Howl({
+							  src: ['audio/Bird-tweet-sound.mp3']
+								});
+
+							sound.play();
 						  break;
 
 		case 'RAIN': $('#canV').css('background', 'url(gifs/rainy.gif)');
