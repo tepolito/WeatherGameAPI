@@ -208,7 +208,18 @@ function changeGif(i)
 								});
 
 							sound.play();
-						  break;					  					  				  					  				  	
+						  break;
+
+		case 'FOG': $('#canV').css('background', 'url(gifs/fog.gif)');
+						  $('#canV').css('background-size', 'cover');
+						  $('#canV').css('background-position', 'center');
+
+						  var sound = new Howl({
+							  src: ['audio/owl.wav']
+								});
+
+							sound.play();
+						  break;				  					  					  				  					  				  	
 	}
 }
 
