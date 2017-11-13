@@ -111,7 +111,15 @@ header{
 		font-size: 24px;
 	}
 
+	.info{
+		font-size: 24px;
+	}
+
 	.lil-guy{
 		width: 75px;
+	}
+
+	#location-form{
+		height: 30px;
 	}
 }
