@@ -91,3 +91,10 @@ header{
 		padding:50px;
 	}
 }
+
+@media (max-height: 570px)
+{
+	#canV{
+		height: 200px;
+	}
+}
