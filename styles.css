@@ -96,5 +96,10 @@ header{
 {
 	#canV{
 		height: 200px;
+		width: 100%;
+	}
+
+	#main{
+		height: auto;
 	}
 }
