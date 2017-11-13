@@ -214,7 +214,7 @@ function changeGif(i)
 						  $('#canV').css('background-position', 'center');
 
 						  var sound = new Howl({
-							  src: ['audio/owl.wav']
+							  src: ['audio/jingle-sound.mp3']
 								});
 
 							sound.play();
