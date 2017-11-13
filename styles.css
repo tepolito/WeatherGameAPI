@@ -56,14 +56,17 @@ header{
 } 
 .calendar canvas{
     display: inline-block;
-    width: 50px;
+}
+
+.lil-guy{
+	width: 50px;
 }
 
 #today {
 	width: 75%;
     position: absolute;
     bottom: 0;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     z-index: -1;
     right: 0;
     left: 0;
@@ -92,8 +95,7 @@ header{
 	}
 }
 
-@media (max-height: 570px)
-{
+@media (max-height: 570px){
 	#canV{
 		height: 200px;
 		width: 100%;
@@ -101,5 +103,15 @@ header{
 
 	#main{
 		height: auto;
+	}
+}
+
+@media (min-height: 700px){
+	.c-info{
+		font-size: 24px;
+	}
+
+	.lil-guy{
+		width: 75px;
 	}
 }

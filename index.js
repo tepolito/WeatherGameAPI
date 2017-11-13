@@ -29,7 +29,7 @@ function getDataFromGoogleMaps(locationText)
 					//$("div").append("<p>All done!</p>");
 					ICON_ARR.forEach(function (sky)
 					{
-						$('.calendar').append(`<canvas id="${sky.id}"></canvas>`);
+						$('.calendar').append(`<canvas class="lil-guy" id="${sky.id}"></canvas>`);
 						skycons.add(document.getElementById(sky.id), Skycons[sky.icon]);
 					})
 					
@@ -66,9 +66,8 @@ function getDataFromDarkSky(lat, long)
 		    success: function(data) {
 		    	console.log(data)
 		    	console.log(`i is ${i}`);
-		    //	ICON_ARR.push(addSkycon(data));
 		    	addSkycon(data, i)
-		    	//console.log(ICON_ARR[i]);
+
 		    },
 		    dataType: 'jsonp'
 	  })
