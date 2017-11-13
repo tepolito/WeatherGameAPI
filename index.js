@@ -210,7 +210,7 @@ function changeGif(i)
 							sound.play();
 						  break;
 
-		case 'FOG': $('#canV').css('background', 'url(gifs/fog.gif)');
+		case 'SNOW': $('#canV').css('background', 'url(gifs/snow.gif)');
 						  $('#canV').css('background-size', 'cover');
 						  $('#canV').css('background-position', 'center');
 
