@@ -4,6 +4,7 @@ var skycons = new Skycons({"color": "white"});
 var skyconsBig = new Skycons({"color": "white"});
 const ICON_ARR=[];
 var index =0;
+var currentDay;
 
 function getDataFromGoogleMaps(locationText)
 {
@@ -24,7 +25,7 @@ function getDataFromGoogleMaps(locationText)
 					//$("div").append("<p>All done!</p>");
 					ICON_ARR.forEach(function (sky)
 					{
-						$('.calendar').append(`<span class="contains-calendar-day"><canvas class="lil-guy" id="${sky.id}"></canvas> <span  class="calendarWDay">${sky.wordDay}</span></span>`);
+						$('.calendar').append(`<span class="contains-calendar-day"><canvas class="lil-guy" id="${sky.id}"></canvas> <span  class="calendarWDay" id="0${sky.id}">${sky.wordDay}</span></span>`);
 						skycons.add(document.getElementById(sky.id), Skycons[sky.icon]);
 					})
 					
@@ -102,6 +103,8 @@ function createToday()
 		return;
 	}
 
+	currentDay = index;
+
 	$('.js-calendar-info').html('');
 
 	skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[index].icon]);
@@ -110,6 +113,7 @@ function createToday()
 
 	console.log(index);
 	skyconsBig.play();
+	changeCurrentDay(index);
 	scrollCalendar();
 	changeGif(index);
 	watchCalendarClick();
@@ -136,6 +140,7 @@ function watchCalendarClick()
 	{
 		console.log($(this).attr('id'));
 		changeInfo($(this).attr('id'));
+		changeCurrentDay($(this).attr('id'));
 	})
 }
 
@@ -216,6 +221,11 @@ function changeInfo(indi)
   	$('.js-calendar-info').append(`<p class='c-info'>Summary: The weather is ${ICON_ARR[indi].stat}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>The sun will rise at: ${ICON_ARR[indi].sunrise}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>The sun will set at: ${ICON_ARR[indi].sunset}</p>`);
+}
+
+function changeCurrentDay(indi)
+{
+	$(`#0${indi}`).css('color', 'black');
 }
 
 function watchSubmit()

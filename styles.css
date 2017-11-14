@@ -96,6 +96,10 @@ header{
 	background-position: center;
 }
 
+.currentDay{
+	border: 2px solid gold;
+}
+
 @media (min-width: 600px){
 	#main{
 		padding:50px;
