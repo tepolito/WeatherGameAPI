@@ -5,11 +5,6 @@ var skyconsBig = new Skycons({"color": "white"});
 const ICON_ARR=[];
 var index =0;
 
-function generateRandomNumber()
-{
-	return Math.floor((Math.random() * 7) + 1);
-}
-
 function getDataFromGoogleMaps(locationText)
 {
 	//alert('getDataFromGoogleMaps called');
@@ -111,15 +106,6 @@ function createToday()
 
 	skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[index].icon]);
 
-	/*dataUrl = document.getElementById('today').toDataURL();
-  	document.getElementById('calendar-info').style.background='url('+dataUrl+')';
-  	$('.js-calendar-info').css('background-repeat', 'no-repeat');
-  	$('.js-calendar-info').css('background-position', 'center');*/
-
-  	/*$('.js-calendar-info').append(`<p class='c-info'>${ICON_ARR[index].day}</p>`);
-  	$('.js-calendar-info').append(`<p class='c-info'>Temperature: ${ICON_ARR[index].temp}F</p>`);
-  	$('.js-calendar-info').append(`<p class='c-info'>Summary: The weather is ${ICON_ARR[index].stat}</p>`); */
-
   	changeInfo(index)
 
 	console.log(index);
@@ -169,83 +155,54 @@ function changeGif(i)
 
 	switch(gif)
 	{
-		case 'CLEAR_DAY': $('#canV').css('background', 'url(gifs/sun_clear.gif)');
-						  $('#canV').css('background-size', 'cover');
-						  $('#canV').css('background-position', 'center');
+		case 'CLEAR_DAY': setGif('gifs/sun_clear.gif');
 
-						  var sound = new Howl({
-							  src: ['audio/Bird-tweet-sound.mp3']
-								});
-
-							sound.play();
+						  setSound('audio/Bird-tweet-sound.mp3');
 						  break;
 
-		case 'PARTLY_CLOUDY_DAY': $('#canV').css('background', 'url(gifs/sun_and_cloud.gif)');
-						  $('#canV').css('background-size', 'cover');
-						  $('#canV').css('background-position', 'center');
+		case 'PARTLY_CLOUDY_DAY': setGif('gifs/sun_and_cloud.gif');
 
-						  var sound = new Howl({
-							  src: ['audio/Bird-tweet-sound.mp3']
-								});
-
-							sound.play();
+						  setSound('audio/Bird-tweet-sound.mp3');
 						  break;
 
-		case 'RAIN': $('#canV').css('background', 'url(gifs/rainy.gif)');
-						  $('#canV').css('background-size', 'cover');
-						  $('#canV').css('background-position', 'center');
+		case 'RAIN': setGif('gifs/rainy.gif');
 
-						  var sound = new Howl({
-							  src: ['audio/rain.mp3']
-								});
-
-							sound.play();
+						  setSound('audio/rain.mp3');
 						  break;
 
-		case 'PARTLY_CLOUDY_NIGHT': $('#canV').css('background', 'url(gifs/overcast_moon.gif)');
-						  $('#canV').css('background-size', 'cover');
-						  $('#canV').css('background-position', 'center');
+		case 'PARTLY_CLOUDY_NIGHT': setGif('gifs/overcast_moon.gif');
 
-						  var sound = new Howl({
-							  src: ['audio/owl.wav']
-								});
-
-							sound.play();
+						  setSound('audio/owl.wav');
 						  break;
 
-		case 'CLEAR_NIGHT': $('#canV').css('background', 'url(gifs/clear_moon.gif)');
-						  $('#canV').css('background-size', 'cover');
-						  $('#canV').css('background-position', 'center');
+		case 'CLEAR_NIGHT': setGif('gifs/clear_moon.gif');
 
-						  var sound = new Howl({
-							  src: ['audio/owl.wav']
-								});
-
-							sound.play();
+						  setSound('audio/owl.wav');
 						  break;
 
-		case 'SNOW': $('#canV').css('background', 'url(gifs/snow.gif)');
-						  $('#canV').css('background-size', 'cover');
-						  $('#canV').css('background-position', 'center');
+		case 'SNOW': setGif('gifs/snow.gif');
 
-						  var sound = new Howl({
-							  src: ['audio/jingle-sound.mp3']
-								});
-
-							sound.play();
+						  setSound('audio/jingle-sound.mp3');
 						  break;
 
-	case 'FOG': $('#canV').css('background', 'url(gifs/fog.gif)');
-						  $('#canV').css('background-size', 'cover');
-						  $('#canV').css('background-position', 'center');
+	case 'FOG': setGif('gifs/fog.gif');
 
-						  var sound = new Howl({
-							  src: ['audio/fog-horn.mp3']
-								});
-
-							sound.play();
+						  setSound('audio/fog-horn.mp3');
 						  break;						  				  					  					  				  					  				  	
 	}
+}
+
+function setGif(path)
+{
+	$('#canV').css('background', 'url('+path+')');
+	$('#canV').css('background-size', 'cover');
+	$('#canV').css('background-position', 'center');
+}
+
+function setSound(path)
+{
+	var sound = new Howl({src: [`'${path}'`]});
+	sound.play();
 }
 
 function changeInfo(indi)
@@ -260,7 +217,6 @@ function changeInfo(indi)
   	$('.js-calendar-info').append(`<p class='c-info'>The sun will rise at: ${ICON_ARR[indi].sunrise}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>The sun will set at: ${ICON_ARR[indi].sunset}</p>`);
 }
-
 
 function watchSubmit()
 {
