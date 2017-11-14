@@ -83,8 +83,8 @@ function addSkycon(data, i)
 	let icon = data.currently.icon.toUpperCase().replace(/-/g, '_');
 	let temp = data.currently.temperature;
 	let stat = data.currently.summary;
-	let tempHigh = data.daily['0'].apparentTemperatureHigh;
-	console.log(tempHigh);
+	let tempHigh = data.daily.data['0'].apparentTemperatureHigh;
+	let tempLow = data.daily.data['0'].apparentTemperatureLow;
 	let date = Date.now();
 
 	let day = new Date(data.currently.time*1000);
@@ -93,7 +93,7 @@ function addSkycon(data, i)
 	day = day.customFormat("#MM#/#DD#");
 
 	
-	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day, wordDay:wordDay};
+	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day, wordDay:wordDay, tempHigh:tempHigh, tempLow:tempLow};
 
 }
 
@@ -252,6 +252,8 @@ function changeInfo(indi)
 
 	$('.js-calendar-info').append(`<p class='c-info'>${ICON_ARR[indi].day}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>Temperature: ${ICON_ARR[indi].temp}F</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>The high is: ${ICON_ARR[indi].tempHigh}</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>The low is: ${ICON_ARR[indi].tempLow}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>Summary: The weather is ${ICON_ARR[indi].stat}</p>`);
 }
 
