@@ -58,7 +58,7 @@ function getDataFromDarkSky(lat, long)
 		$.ajax(
 		{
 		    type:"GET",
-		    url: `https://api.darksky.net/forecast/6a31534b1bd30234128d6f4e569d2fa9/${lat}, ${long},${d}`,
+		    url: `https://api.darksky.net/forecast/d9477455529c72ec124ab386f26597e8/${lat}, ${long},${d}`,
 		    success: function(data) {
 		    	console.log(data)
 		    	console.log(`i is ${i}`);
@@ -225,7 +225,7 @@ function changeInfo(indi)
 
 function changeCurrentDay(indi)
 {
-	$(`#0${indi}`).css('color', 'black');
+	$(`#0${indi}`).toggleClass('currentDay');
 }
 
 function watchSubmit()
