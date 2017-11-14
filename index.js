@@ -225,6 +225,10 @@ function changeInfo(indi)
 
 function changeCurrentDay(indi)
 {
+	$('canvas').hasClass('currentDay')
+	{
+		$('canvas').toggleClass('currentDay');
+	}
 	$(`#0${indi}`).toggleClass('currentDay');
 }
 
