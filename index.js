@@ -82,9 +82,9 @@ function addSkycon(data, i)
 {
 	let icon = data.currently.icon.toUpperCase().replace(/-/g, '_');
 	let temp = data.currently.temperature;
-	//console.log(`temperature is ${temp}`);
 	let stat = data.currently.summary;
-	//console.log(`the summary is ${stat}`);
+	let tempHigh = data.daily['0'].apparentTemperatureHigh;
+	console.log(tempHigh);
 	let date = Date.now();
 
 	let day = new Date(data.currently.time*1000);
