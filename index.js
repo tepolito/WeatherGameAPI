@@ -93,7 +93,7 @@ function addSkycon(data, i)
 	day = day.customFormat("#MM#/#DD#");
 
 	
-	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day, wordDay: wordDay};
+	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day, wordDay:wordDay};
 
 }
 
@@ -122,6 +122,7 @@ function createToday()
 	skyconsBig.play();
 	scrollCalendar();
 	changeGif(index);
+	watchCalendarClick();
 	index++;
 }
 
@@ -141,10 +142,9 @@ function scrollCalendar()
 
 function watchCalendarClick()
 {
-	$(".calendar").on("click", ".canvas", function (e)
+	$(".calendar").on("click", "canvas", function (e)
 	{
-		window.a=this;
-		console.log($(this).find('canvas').attr('id'));
+		console.log($(this));
 	})
 }
 
