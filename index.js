@@ -114,9 +114,11 @@ function createToday()
   	$('.js-calendar-info').css('background-repeat', 'no-repeat');
   	$('.js-calendar-info').css('background-position', 'center');*/
 
-  	$('.js-calendar-info').append(`<p class='c-info'>${ICON_ARR[index].day}</p>`);
+  	/*$('.js-calendar-info').append(`<p class='c-info'>${ICON_ARR[index].day}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>Temperature: ${ICON_ARR[index].temp}F</p>`);
-  	$('.js-calendar-info').append(`<p class='c-info'>Summary: The weather is ${ICON_ARR[index].stat}</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>Summary: The weather is ${ICON_ARR[index].stat}</p>`); */
+
+  	changeInfo(index)
 
 	console.log(index);
 	skyconsBig.play();
@@ -144,7 +146,8 @@ function watchCalendarClick()
 {
 	$(".calendar").on("click", "canvas", function (e)
 	{
-		console.log($(this));
+		console.log($(this).attr('id'));
+		changeInfo($(this).attr('id'));
 	})
 }
 
@@ -241,6 +244,15 @@ function changeGif(i)
 							sound.play();
 						  break;						  				  					  					  				  					  				  	
 	}
+}
+
+function changeInfo(indi)
+{
+	$('.js-calendar-info').html('');
+
+	$('.js-calendar-info').append(`<p class='c-info'>${ICON_ARR[indi].day}</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>Temperature: ${ICON_ARR[indi].temp}F</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>Summary: The weather is ${ICON_ARR[indi].stat}</p>`);
 }
 
 
