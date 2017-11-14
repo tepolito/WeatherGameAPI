@@ -39,8 +39,6 @@ header{
 
 .calendar-container{
 	width: 100%;
-	position: absolute;
-	bottom: 0;
 }
 
 .js-calendar-info{
@@ -59,19 +57,28 @@ header{
 }
 
 .lil-guy{
+	display: block;
 	width: 50px;
 }
 
+.calendarWDay{
+	    width: 50px;
+    text-align: center;
+    display: block;
+}
+
+.today-container{
+	text-align: center;
+}
+
 #today {
-	width: 75%;
-    position: absolute;
-    bottom: 0;
-    padding-bottom: 20px;
-    z-index: -1;
-    right: 0;
-    left: 0;
+	width: 50%;
     margin-left: auto;
     margin-right: auto; 
+}
+
+.contains-calendar-day{
+	display: inline-block;
 }
 
 .calendar::-webkit-scrollbar { 

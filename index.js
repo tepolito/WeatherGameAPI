@@ -29,7 +29,7 @@ function getDataFromGoogleMaps(locationText)
 					//$("div").append("<p>All done!</p>");
 					ICON_ARR.forEach(function (sky)
 					{
-						$('.calendar').append(`<canvas class="lil-guy" id="${sky.id}"></canvas>`);
+						$('.calendar').append(`<span class="contains-calendar-day"><canvas class="lil-guy" id="${sky.id}"></canvas> <span  class="calendarWDay">${sky.wordDay}</span></span>`);
 						skycons.add(document.getElementById(sky.id), Skycons[sky.icon]);
 					})
 					
@@ -62,7 +62,7 @@ function getDataFromDarkSky(lat, long)
 		$.ajax(
 		{
 		    type:"GET",
-		    url: `https://api.darksky.net/forecast/d9477455529c72ec124ab386f26597e8/${lat}, ${long},${d}`,
+		    url: `https://api.darksky.net/forecast/6a31534b1bd30234128d6f4e569d2fa9/${lat}, ${long},${d}`,
 		    success: function(data) {
 		    	console.log(data)
 		    	console.log(`i is ${i}`);
@@ -88,11 +88,12 @@ function addSkycon(data, i)
 	let date = Date.now();
 
 	let day = new Date(data.currently.time*1000);
-	console.log(day.customFormat("#DD#/#MM#/#YYYY# #hh#:#mm#:#ss#"))
+	console.log(day.customFormat("#DDD#"))
+	let wordDay = day.customFormat("#DDD#");
 	day = day.customFormat("#MM#/#DD#");
 
 	
-	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day};
+	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day, wordDay: wordDay};
 
 }
 
@@ -136,6 +137,15 @@ function scrollCalendar()
             'slow');
 	
 	
+}
+
+function watchCalendarClick()
+{
+	$(".calendar").on("click", ".canvas", function (e)
+	{
+		window.a=this;
+		console.log($(this).find('canvas').attr('id'));
+	})
 }
 
 function startGame()
@@ -251,7 +261,7 @@ function watchSubmit()
 		const loc = getDataFromGoogleMaps(query); //get the latitude and longitude 
 
 		$('.info-container').hide();
-		$('.location-form').hide();
+		$('.location-form, header').hide();
 		$('.js-calendar-info').show();
 		$('.today-container').show();
 
