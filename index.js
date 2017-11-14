@@ -88,12 +88,14 @@ function addSkycon(data, i)
 	let date = Date.now();
 
 	let day = new Date(data.currently.time*1000);
-	console.log(day.customFormat("#DDD#"))
+	console.log(day.customFormat("#hh#:#mm#"));
 	let wordDay = day.customFormat("#DDD#");
+	let sunrise = new Date(data.daily.data['0'].sunriseTime*1000).customFormat("#hh#:#mm# #AMPM#");
+	let sunset = new Date(data.daily.data['0'].sunsetTime*1000).customFormat("#hh#:#mm# #AMPM#");
 	day = day.customFormat("#MM#/#DD#");
 
 	
-	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day, wordDay:wordDay, tempHigh:tempHigh, tempLow:tempLow};
+	ICON_ARR[i] = {id:i, icon:icon, temp:temp, stat:stat, day:day, wordDay:wordDay, tempHigh:tempHigh, tempLow:tempLow, sunrise:sunrise, sunset:sunset};
 
 }
 
@@ -255,6 +257,8 @@ function changeInfo(indi)
   	$('.js-calendar-info').append(`<p class='c-info'>The high is: ${ICON_ARR[indi].tempHigh}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>The low is: ${ICON_ARR[indi].tempLow}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>Summary: The weather is ${ICON_ARR[indi].stat}</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>The sun will rise at: ${ICON_ARR[indi].sunrise}</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>The sun will set at: ${ICON_ARR[indi].sunset}</p>`);
 }
 
 
