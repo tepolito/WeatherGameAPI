@@ -25,7 +25,8 @@ header{
 }
 
 footer{
-	position: absolute;
+	height: 25%;
+	position: fixed;
 	bottom: 0;
 	text-align: left;
 	overflow: scroll;
