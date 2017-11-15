@@ -225,10 +225,13 @@ function changeInfo(indi)
 
 function changeCurrentDay(indi)
 {
-	$('canvas').hasClass('currentDay')
+	ICON_ARR.forEach(function(skys)
 	{
-		$('canvas').toggleClass('currentDay');
-	}
+		$(`#0${skys.id}`).hasClass('currentDay')
+		{
+			$(`#0${skys.id}`).removeClass('currentDay');
+		}
+	})
 	$(`#0${indi}`).toggleClass('currentDay');
 }
 

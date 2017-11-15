@@ -25,14 +25,20 @@ header{
 }
 
 footer{
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	text-align: left;
+	overflow: scroll;
+}
+
+footer::-webkit-scrollbar{
+	display: none;
 }
 
 .info-container, .location-form{
 	width: 80%;
 	margin: auto;
+	padding-top: 30px;
 }
 
 #main{ 
@@ -45,11 +51,6 @@ footer{
 
 .calendar-container{
 	width: 100%;
-}
-
-.js-calendar-info{
-	text-align: center;
-	text-shadow: -1, 1, black;
 }
 
 .calendar{
