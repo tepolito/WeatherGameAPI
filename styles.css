@@ -25,7 +25,7 @@ header{
 }
 
 footer{
-	height: 25%;
+	height: 23%;
 	position: fixed;
 	bottom: 0;
 	text-align: left;
@@ -115,6 +115,16 @@ footer::-webkit-scrollbar{
 	padding-bottom: 25px;
 }
 
+.city-container{
+	width: 100%;
+}
+
+.city{
+	text-align: center;
+    margin-top: 0;
+    font-size: 22px;
+}
+
 @media (min-width: 600px){
 	#main{
 		padding:50px;
@@ -132,7 +142,7 @@ footer::-webkit-scrollbar{
 	}
 }
 
-@media (min-height: 700px){
+@media (min-height:650px){
 	.c-info{
 		font-size: 24px;
 	}

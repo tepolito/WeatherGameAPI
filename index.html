@@ -30,13 +30,18 @@
 
     <div id="main" role="main">
 
-          <div class="calendar-container">
-      <div class="calendar"></div>
+      <div class="calendar-container">
+        <div class="calendar"></div>
       </div>
 
 	    <canvas id="canV" width="500" height="500">
 	    	<!-- Provide fallback -->
 	    </canvas>
+
+      <div class="city-container">
+        <p class="city"></p>
+      </div>
+
     </div>  
 
     <div class="info-container">
@@ -48,8 +53,6 @@
       <input type="text" name="location" placeholder="Enter your location here" class="location-text js-location-text" value="Buffalo">
       <button type="submit" class="location-submit js-location-submit">Enter</button>
     </form>
-
-    
 
     <footer>
 		  <div class="js-calendar-info" id='calendar-info'>

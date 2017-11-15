@@ -249,6 +249,8 @@ function watchSubmit()
 
 		console.log(query);
 
+		$('.city').text(query);
+
 		const loc = getDataFromGoogleMaps(query); //get the latitude and longitude 
 
 		$('.info-container').hide();
