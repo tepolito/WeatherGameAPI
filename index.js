@@ -188,7 +188,7 @@ function changeBackground(i)
 						  setSound('audio/owl.wav');
 						  break;
 
-		case 'SNOW': setBackground('gifs/snow.gif');
+		case 'SNOW': setBackground('images/snow.jpg');
 
 						  setSound('audio/jingle-sound.mp3');
 						  break;
