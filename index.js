@@ -115,7 +115,7 @@ function createToday()
 	skyconsBig.play();
 	changeCurrentDay(index);
 	scrollCalendar();
-	changeGif(index);
+	changeBackground(index);
 	watchCalendarClick();
 	index++;
 }
@@ -139,8 +139,10 @@ function watchCalendarClick()
 	$(".calendar").on("click", "canvas", function (e)
 	{
 		console.log($(this).attr('id'));
-		changeInfo($(this).attr('id'));
-		changeCurrentDay($(this).attr('id'));
+		let ind = $(this).attr('id');
+		changeInfo(ind);
+		changeCurrentDay(ind);
+		changeBackground(ind);
 		init();
 	})
 }
@@ -154,55 +156,60 @@ function startGame()
     });
 }
 
-function changeGif(i)
+function changeBackground(i)
 {
 	gif = ICON_ARR[i].icon;
 	console.log(`gif = ${gif}`);
 
 	switch(gif)
 	{
-		case 'CLEAR_DAY': setGif('gifs/sun_clear.gif');
+		case 'CLEAR_DAY': setBackground('images/clear_sun_field.jpg');
 
 						  setSound('audio/Bird-tweet-sound.mp3');
 						  break;
 
-		case 'PARTLY_CLOUDY_DAY': setGif('gifs/sun_and_cloud.gif');
+		case 'PARTLY_CLOUDY_DAY': setBackground('images/partly_cloudy_field.jpg');
 
 						  setSound('audio/Bird-tweet-sound.mp3');
 						  break;
 
-		case 'RAIN': setGif('gifs/rainy.gif');
+		case 'RAIN': setBackground('gifs/rainy.gif');
 
 						  setSound('audio/rain.mp3');
 						  break;
 
-		case 'PARTLY_CLOUDY_NIGHT': setGif('gifs/overcast_moon.gif');
+		case 'PARTLY_CLOUDY_NIGHT': setBackground('gifs/overcast_moon.gif');
 
 						  setSound('audio/owl.wav');
 						  break;
 
-		case 'CLEAR_NIGHT': setGif('gifs/clear_moon.gif');
+		case 'CLEAR_NIGHT': setBackground('gifs/clear_moon.gif');
 
 						  setSound('audio/owl.wav');
 						  break;
 
-		case 'SNOW': setGif('gifs/snow.gif');
+		case 'SNOW': setBackground('gifs/snow.gif');
 
 						  setSound('audio/jingle-sound.mp3');
 						  break;
 
-	case 'FOG': setGif('gifs/fog.gif');
+		case 'FOG': setBackground('gifs/fog.gif');
 
 						  setSound('audio/fog-horn.mp3');
-						  break;						  				  					  					  				  					  				  	
+						  break;	
+
+		case 'CLOUDY': setBackground('images/overcast_field.jpg');
+
+						  setSound('audio/fog-horn.mp3');
+						  break;				  					  				  					  					  				  					  				  	
 	}
 }
 
-function setGif(path)
+function setBackground(path)
 {
-	$('#canV').css('background', 'url('+path+')');
-	$('#canV').css('background-size', 'cover');
-	$('#canV').css('background-position', 'center');
+	$('#canvastree').css('background', 'url('+path+')');
+	$('#canvastree').css('background-size', 'cover');
+	$('#canvastree').css('background-position', 'center');
 }
 
 function setSound(path)
