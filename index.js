@@ -224,8 +224,8 @@ function changeInfo(indi)
 
 	$('.js-calendar-info').append(`<p class='c-info'>${ICON_ARR[indi].day}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>Temperature: ${ICON_ARR[indi].temp}F</p>`);
-  	$('.js-calendar-info').append(`<p class='c-info'>The high is: ${ICON_ARR[indi].tempHigh}</p>`);
-  	$('.js-calendar-info').append(`<p class='c-info'>The low is: ${ICON_ARR[indi].tempLow}</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>The high is: ${ICON_ARR[indi].tempHigh}F</p>`);
+  	$('.js-calendar-info').append(`<p class='c-info'>The low is: ${ICON_ARR[indi].tempLow}F</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>Summary: The weather is ${ICON_ARR[indi].stat}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>The sun will rise at: ${ICON_ARR[indi].sunrise}</p>`);
   	$('.js-calendar-info').append(`<p class='c-info'>The sun will set at: ${ICON_ARR[indi].sunset}</p>`);
