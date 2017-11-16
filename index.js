@@ -1,7 +1,7 @@
 const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
-var skycons = new Skycons({"color": "black"});
-var skyconsBig = new Skycons({"color": "black"});
+var skycons = new Skycons({"color": "purple"});
+var skyconsBig = new Skycons({"color": "purple"});
 const ICON_ARR=[];
 var index =0;
 var currentDay;
