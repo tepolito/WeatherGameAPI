@@ -178,7 +178,7 @@ function changeBackground(i)
 						  setSound('audio/rain.mp3');
 						  break;
 
-		case 'PARTLY_CLOUDY_NIGHT': setBackground('gifs/overcast_moon.gif');
+		case 'PARTLY_CLOUDY_NIGHT': setBackground('images/partly_cloudy_field_night.jpg');
 
 						  setSound('audio/owl.wav');
 						  break;
