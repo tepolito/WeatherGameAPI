@@ -193,7 +193,7 @@ function changeBackground(i)
 						  setSound('audio/jingle-sound.mp3');
 						  break;
 
-		case 'FOG': setBackground('gifs/fog.gif');
+		case 'FOG': setBackground('images/fog.jpg');
 
 						  setSound('audio/fog-horn.mp3');
 						  break;	
