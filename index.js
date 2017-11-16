@@ -183,7 +183,7 @@ function changeBackground(i)
 						  setSound('audio/owl.wav');
 						  break;
 
-		case 'CLEAR_NIGHT': setBackground('gifs/clear_moon.gif');
+		case 'CLEAR_NIGHT': setBackground('images/clear_night_field.jpg');
 
 						  setSound('audio/owl.wav');
 						  break;
