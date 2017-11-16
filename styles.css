@@ -13,7 +13,8 @@ body{
 	margin-left: auto;
 	margin-right: auto; 
 	font-family: 'Play', sans-serif;
-	color: white;
+	color: black;
+	background-color: white;
 }
 
 header{
@@ -24,17 +25,6 @@ header{
     height: 105px;
 }
 
-footer{
-	height: 23%;
-	position: fixed;
-	bottom: 0;
-	text-align: left;
-	overflow: scroll;
-}
-
-footer::-webkit-scrollbar{
-	display: none;
-}
 
 .info-container, .location-form{
 	width: 80%;
@@ -110,11 +100,6 @@ footer::-webkit-scrollbar{
 	color: black;
 }
 
-.js-calendar-info{
-	padding-left: 25px;
-	padding-bottom: 25px;
-}
-
 .city-container{
 	width: 100%;
 }
@@ -124,6 +109,16 @@ footer::-webkit-scrollbar{
     margin-top: 0;
     font-size: 22px;
 }
+
+canvas#canvastree {
+				position: relative;
+				margin-left: auto;
+				margin-right: auto;
+				/*width: 750px;
+				height: 400px; */
+				width: 100%;
+				border: 1px solid black;
+			}
 
 @media (min-width: 600px){
 	#main{

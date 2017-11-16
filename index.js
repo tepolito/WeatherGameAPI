@@ -1,7 +1,7 @@
 const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
-var skycons = new Skycons({"color": "white"});
-var skyconsBig = new Skycons({"color": "white"});
+var skycons = new Skycons({"color": "black"});
+var skyconsBig = new Skycons({"color": "black"});
 const ICON_ARR=[];
 var index =0;
 var currentDay;
@@ -141,6 +141,7 @@ function watchCalendarClick()
 		console.log($(this).attr('id'));
 		changeInfo($(this).attr('id'));
 		changeCurrentDay($(this).attr('id'));
+		init();
 	})
 }
 
