@@ -258,6 +258,7 @@ function watchSubmit()
 		$('.location-form, header').hide();
 		$('.js-calendar-info').show();
 		$('.today-container').show();
+		$('.city').show();
 
 	});
 }
@@ -266,6 +267,7 @@ function inputHandler()
 {
 	$('.js-calendar-info').hide();
 	$('.today-container').hide();
+	$('.city').hide();
 	watchSubmit();
 }
 
