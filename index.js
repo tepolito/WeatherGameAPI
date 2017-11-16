@@ -173,7 +173,7 @@ function changeBackground(i)
 						  setSound('audio/Bird-tweet-sound.mp3');
 						  break;
 
-		case 'RAIN': setBackground('gifs/rainy.gif');
+		case 'RAIN': setBackground('images/rain.jpg');
 
 						  setSound('audio/rain.mp3');
 						  break;
