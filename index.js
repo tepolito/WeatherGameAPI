@@ -165,43 +165,48 @@ function changeBackground(i)
 	{
 		case 'CLEAR_DAY': setBackground('images/clear_sun_field.jpg');
 
-						  setSound('audio/Bird-tweet-sound.mp3');
+						  //setSound('audio/Bird-tweet-sound.mp3');
 						  break;
 
 		case 'PARTLY_CLOUDY_DAY': setBackground('images/partly_cloudy_field.jpg');
 
-						  setSound('audio/Bird-tweet-sound.mp3');
+						  //setSound('audio/Bird-tweet-sound.mp3');
 						  break;
 
 		case 'RAIN': setBackground('images/rain.jpg');
 
-						  setSound('audio/rain.mp3');
+						  //setSound('audio/rain.mp3');
 						  break;
 
 		case 'PARTLY_CLOUDY_NIGHT': setBackground('images/partly_cloudy_field_night.jpg');
 
-						  setSound('audio/owl.wav');
+						  //setSound('audio/owl.wav');
 						  break;
 
 		case 'CLEAR_NIGHT': setBackground('images/clear_night_field.jpg');
 
-						  setSound('audio/owl.wav');
+						  //setSound('audio/owl.wav');
 						  break;
 
 		case 'SNOW': setBackground('images/snow.jpg');
 
-						  setSound('audio/jingle-sound.mp3');
+						  //setSound('audio/jingle-sound.mp3');
 						  break;
 
 		case 'FOG': setBackground('images/fog.jpg');
 
-						  setSound('audio/fog-horn.mp3');
+						  //setSound('audio/fog-horn.mp3');
 						  break;	
 
 		case 'CLOUDY': setBackground('images/overcast_field.jpg');
 
-						  setSound('audio/fog-horn.mp3');
-						  break;				  					  				  					  					  				  					  				  	
+						  //setSound('audio/fog-horn.mp3');
+						  break;
+
+		case 'WIND': setBackground('images/wind.jpg');
+
+						  //setSound('audio/fog-horn.mp3');
+						  break;				  				  					  				  					  					  				  					  				  	
 	}
 }
 
