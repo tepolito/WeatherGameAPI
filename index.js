@@ -103,8 +103,6 @@ function createToday()
 		return;
 	}
 
-	currentDay = index;
-
 	$('.js-calendar-info').html('');
 
 	skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[index].icon]);
@@ -138,8 +136,14 @@ function watchCalendarClick()
 {
 	$(".calendar").on("click", "canvas", function (e)
 	{
+
 		console.log($(this).attr('id'));
 		let ind = $(this).attr('id');
+
+		skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[ind].icon]);
+
+		skyconsBig.play();
+
 		changeInfo(ind);
 		changeCurrentDay(ind);
 		changeBackground(ind);

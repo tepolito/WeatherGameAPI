@@ -89,12 +89,6 @@ header{
 	margin: 0px;
 }
 
-#canV{
-	background: url('https://media.giphy.com/media/3osxYzIQRqN4DOEddC/giphy.gif');
-	background-size: cover;
-	background-position: center;
-}
-
 .currentDay{
 	border: 2px solid gold;
 	color: black;
@@ -123,6 +117,7 @@ canvas#canvastree {
 @media (min-width: 600px){
 	#main{
 		padding:50px;
+		width: 80%;
 	}
 }
 
