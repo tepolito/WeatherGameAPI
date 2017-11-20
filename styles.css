@@ -1,5 +1,6 @@
 *{
 	box-sizing: border-box;
+	border: 1px dashed #CCC;
 }
 
 html, body{ 
@@ -13,8 +14,8 @@ body{
 	margin-left: auto;
 	margin-right: auto; 
 	font-family: 'Play', sans-serif;
-	color: purple;
-	background-color: lightgrey;
+	color: black;
+	background-color: white;
 }
 
 header{
@@ -22,9 +23,11 @@ header{
 	margin: auto;
 	text-align: center;
 	position: relative;
-    height: 105px;
 }
 
+.titleHeader{
+	margin: 0;
+}
 
 .info-container, .location-form{
 	width: 80%;
@@ -36,8 +39,6 @@ header{
 	padding:0px;
 	display:block; 
 	width:100%; 
-	height:300px;
-
 }
 
 .calendar-container{
@@ -105,13 +106,11 @@ header{
 }
 
 canvas#canvastree {
-	position: relative;
 	margin-left: auto;
 	margin-right: auto;
 	/*width: 750px;
-	height: 400px; */
-	width: 100%;
-	border: 1px solid black;
+	height: 800px; */
+	width: 200px;
 }
 
 @media (min-width: 600px){
@@ -126,7 +125,6 @@ canvas#canvastree {
 	.js-calendar-info{
 		margin-left: auto;
     	margin-right: auto;
-    	width: 50%;
 	}
 }
 

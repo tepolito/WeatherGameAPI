@@ -7,8 +7,8 @@ Snake = function(canvas) {
 	this.speed = this.canvasWidth/500;
 	this.angle = Math.PI/2;
 	this.angleDiversion = 
-	this.fillStyle = "saddlebrown";
-	this.shadowColor = "burlywood";
+	this.fillStyle = "black";
+	this.shadowColor = "black";
 	this.shadowBlur = 2;
 	this.generation = 0;
 	this.lifespan = 0;
@@ -73,6 +73,8 @@ Snake.prototype = {
 		var width = $canvas.width();
 		var height = $canvas.height();
 		
+		console.log(width, height);
+
 		if (this.x < -margin || this.x > width+margin || this.y < -margin || this.y > height+margin) {
 // 			this.x = width/2;
 			this.y = height;
@@ -180,7 +182,7 @@ window.init = function init(){
 	
 	// Snakes
 	var n = 2+Math.random()*3;
-	var initialRadius = width/50;
+	var initialRadius = width/25;
 
 	var snakes = new SnakeCollection();
 	for (var i=0 ; i<n ; i++) {

@@ -1,7 +1,7 @@
 const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
-var skycons = new Skycons({"color": "purple"});
-var skyconsBig = new Skycons({"color": "purple"});
+var skycons = new Skycons({"color": "black"});
+var skyconsBig = new Skycons({"color": "black"});
 const ICON_ARR=[];
 var index =0;
 var currentDay;
@@ -113,7 +113,7 @@ function createToday()
 	skyconsBig.play();
 	changeCurrentDay(index);
 	scrollCalendar();
-	changeBackground(index);
+	//changeBackground(index);
 	watchCalendarClick();
 	index++;
 }
@@ -146,7 +146,7 @@ function watchCalendarClick()
 
 		changeInfo(ind);
 		changeCurrentDay(ind);
-		changeBackground(ind);
+		//changeBackground(ind);
 		init();
 	})
 }
@@ -271,7 +271,7 @@ function watchSubmit()
 		const loc = getDataFromGoogleMaps(query); //get the latitude and longitude 
 
 		$('.info-container').hide();
-		$('.location-form, header').hide();
+		$('.location-form').hide();
 		$('.js-calendar-info').show();
 		$('.today-container').show();
 		$('.city').show();
