@@ -105,19 +105,22 @@ header{
 }
 
 canvas#canvastree {
-				position: relative;
-				margin-left: auto;
-				margin-right: auto;
-				/*width: 750px;
-				height: 400px; */
-				width: 100%;
-				border: 1px solid black;
-			}
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	/*width: 750px;
+	height: 400px; */
+	width: 100%;
+	border: 1px solid black;
+}
 
 @media (min-width: 600px){
 	#main{
 		padding:50px;
-		width: 80%;
+		max-width: 600px;
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.js-calendar-info{
