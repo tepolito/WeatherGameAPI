@@ -1,7 +1,7 @@
 const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
-var skycons = new Skycons({"color": "black"});
-var skyconsBig = new Skycons({"color": "black"});
+var skycons = new Skycons({"color": "whitesmoke"});
+var skyconsBig = new Skycons({"color": "whitesmoke"});
 const ICON_ARR=[];
 var index =0;
 var currentDay;
@@ -58,7 +58,7 @@ function getDataFromDarkSky(lat, long)
 		$.ajax(
 		{
 		    type:"GET",
-		    url: `https://api.darksky.net/forecast/d9477455529c72ec124ab386f26597e8/${lat}, ${long},${d}`,
+		    url: `https://api.darksky.net/forecast/6a31534b1bd30234128d6f4e569d2fa9/${lat}, ${long},${d}`,
 		    success: function(data) {
 		    	console.log(data)
 		    	console.log(`i is ${i}`);
@@ -244,10 +244,12 @@ function changeCurrentDay(indi)
 {
 	ICON_ARR.forEach(function(skys)
 	{
-		$(`#0${skys.id}`).hasClass('currentDay')
+		/*$(`#0${skys.id}`).hasClass('currentDay')
 		{
 			$(`#0${skys.id}`).removeClass('currentDay');
-		}
+		}*/
+
+		$(`#0${skys.id}`).addClass('currentDay');
 	})
 	$(`#0${indi}`).toggleClass('currentDay');
 }
