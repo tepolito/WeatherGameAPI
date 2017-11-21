@@ -133,11 +133,11 @@ function scrollCalendar()
 
 function watchCalendarClick()
 {
-	$(".calendar").on("click", "canvas", function (e)
+	$(".calendar").on("click", ".contains-calendar-day", function (e)
 	{
 
-		console.log($(this).attr('id'));
-		let ind = $(this).attr('id');
+		console.log($(this).children('canvas').attr('id'));
+		let ind = $(this).children('canvas').attr('id');
 
 		skyconsBig.set(document.getElementById('today'), Skycons[ICON_ARR[ind].icon]);
 
