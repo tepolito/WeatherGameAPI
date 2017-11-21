@@ -43,7 +43,7 @@ header{
 
 .another-div{
 	height: 100%;
-	width: 50%;
+	width: 80%;
 	min-height: 100vh;
 	margin: auto;
 	background: rgba(0,0,0,.5);
@@ -53,7 +53,7 @@ header{
 	margin: 0;
 }
 
-.info-container, .location-form{
+.info-container{
 	width: 80%;
 	margin: auto;
 	padding-top: 30px;
@@ -158,6 +158,10 @@ canvas#canvastree {
 	.info-container{
 		width: 100%;
 	}
+
+	.another-div{
+		width: 50%;
+	}
 }
 
 @media (max-height: 570px){
@@ -191,12 +195,6 @@ canvas#canvastree {
 	.city{
 		margin-top: auto;
 		font-size: 30px;
-	}
-}
-
-@media (min-height: 550px){
-	footer{
-		height: 30%;
 	}
 }
 
