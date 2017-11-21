@@ -113,7 +113,6 @@ function createToday()
 	skyconsBig.play();
 	changeCurrentDay(index);
 	scrollCalendar();
-	//changeBackground(index);
 	watchCalendarClick();
 	index++;
 }
@@ -160,65 +159,41 @@ function startGame()
     });
 }
 
-function changeBackground(i)
+function changeBackground()
 {
-	gif = ICON_ARR[i].icon;
-	console.log(`gif = ${gif}`);
+	bg = Math.floor(Math.random() * 3) +1;
+	console.log(bg);
 
-	switch(gif)
+	switch(bg)
 	{
-		case 'CLEAR_DAY': setBackground('images/clear_sun_field.jpg');
+		case 1: setBackground('Background/background_1.jpg');
+			break;
 
-						  //setSound('audio/Bird-tweet-sound.mp3');
-						  break;
+		case 2: setBackground('Background/background_2.jpg');
+			break;
 
-		case 'PARTLY_CLOUDY_DAY': setBackground('images/partly_cloudy_field.jpg');
+		case 3: setBackground('Background/background_3.jpg');
+			break;
 
-						  //setSound('audio/Bird-tweet-sound.mp3');
-						  break;
+		case 4: setBackground('Background/background_4.jpg');
+			break;
 
-		case 'RAIN': setBackground('images/rain.jpg');
+		case 5: setBackground('Background/background_5.jpg');
+			break;
 
-						  //setSound('audio/rain.mp3');
-						  break;
+		case 6: setBackground('Background/background_6.jpg');
+			break;			
 
-		case 'PARTLY_CLOUDY_NIGHT': setBackground('images/partly_cloudy_field_night.jpg');
-
-						  //setSound('audio/owl.wav');
-						  break;
-
-		case 'CLEAR_NIGHT': setBackground('images/clear_night_field.jpg');
-
-						  //setSound('audio/owl.wav');
-						  break;
-
-		case 'SNOW': setBackground('images/snow.jpg');
-
-						  //setSound('audio/jingle-sound.mp3');
-						  break;
-
-		case 'FOG': setBackground('images/fog.jpg');
-
-						  //setSound('audio/fog-horn.mp3');
-						  break;	
-
-		case 'CLOUDY': setBackground('images/overcast_field.jpg');
-
-						  //setSound('audio/fog-horn.mp3');
-						  break;
-
-		case 'WIND': setBackground('images/wind.jpg');
-
-						  //setSound('audio/fog-horn.mp3');
-						  break;				  				  					  				  					  					  				  					  				  	
+		default: console.log("background didn't load");
+			break;							  				  					  				  					  					  				  					  				  	
 	}
 }
 
 function setBackground(path)
 {
-	$('#canvastree').css('background', 'url('+path+')');
-	$('#canvastree').css('background-size', 'cover');
-	$('#canvastree').css('background-position', 'center');
+	$('body').css('background-image', 'url('+path+')');
+	/*$('#canvastree').css('background-size', 'cover');
+	$('#canvastree').css('background-position', 'center');*/
 }
 
 function setSound(path)
@@ -286,6 +261,7 @@ function inputHandler()
 	$('.js-calendar-info').hide();
 	$('.today-container').hide();
 	$('.city').hide();
+	changeBackground();
 	watchSubmit();
 }
 
