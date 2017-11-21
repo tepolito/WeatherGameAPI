@@ -161,7 +161,7 @@ function startGame()
 
 function changeBackground()
 {
-	bg = Math.floor(Math.random() * 3) +1;
+	bg = Math.floor(Math.random() * 6) +1;
 	console.log(bg);
 
 	switch(bg)
