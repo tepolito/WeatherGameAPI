@@ -115,7 +115,7 @@ header{
 }
 
 .currentDay{
-	color: black !important;
+	color: grey !important;
 }
 
 .city-container{
@@ -205,7 +205,7 @@ canvas#canvastree {
 }
 
 .contains-calendar-day > .calendarWDay:hover {
-  color: #000;
+  color: white;
 }
 
 .contains-calendar-day > .calendarWDay:before {

@@ -112,7 +112,7 @@ function createToday()
 	console.log(index);
 	skyconsBig.play();
 	changeCurrentDay(index);
-	scrollCalendar();
+	//scrollCalendar();
 	watchCalendarClick();
 	index++;
 }
