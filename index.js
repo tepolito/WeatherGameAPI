@@ -1,4 +1,3 @@
-const DARKSKY_API_URL ="https://api.darksky.net/forecast/";
 let i=0;
 var skycons = new Skycons({"color": "whitesmoke"});
 var skyconsBig = new Skycons({"color": "whitesmoke"});
