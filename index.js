@@ -320,3 +320,24 @@ var time = new Date().getTime();
 var date = new Date(time);
 console.log(date.customFormat("#DD#/#MM#/#YYYY# #hh#:#mm#:#ss#"))
   
+//////////////////////////////////////////////////////////////////////
+
+var clicked = false, clickX;
+$(document).on({
+    'mousemove': function(e) {
+        clicked && updateScrollPos(e);
+    },
+    'mousedown': function(e) {
+        clicked = true;
+        clickX = e.pageX;
+    },
+    'mouseup': function() {
+        clicked = false;
+        $('.calendar').css('cursor', 'auto');
+    }
+});
+
+var updateScrollPos = function(e) {
+    $('.calendar').css('cursor', 'row-resize');
+    $('.calendar').scrollLeft($('.calendar').scrollLeft() + (clickX - e.pageX));
+}  
