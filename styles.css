@@ -75,6 +75,7 @@ header{
 	white-space: nowrap;
 	width: 100%; 
 	overflow: scroll;
+	scroll-behavior: smooth;
 } 
 .calendar canvas{
     display: inline-block;

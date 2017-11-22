@@ -156,6 +156,8 @@ function startGame()
 	{
         $(this).scrollTop($(window).scrollTop()).scrollLeft($(window).scrollLeft());
     });
+
+    window.scroll({behavior: 'smooth' });
 }
 
 function changeBackground()
