@@ -262,6 +262,7 @@ function inputHandler()
 	$('.city').hide();
 	changeBackground();
 	watchSubmit();
+	initialize();
 }
 
 $(inputHandler());

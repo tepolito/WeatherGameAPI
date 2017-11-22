@@ -43,7 +43,8 @@ header{
 
 .another-div{
 	height: 100%;
-	width: 80%;
+	width: 100%;
+	padding: 0 10%;
 	min-height: 100vh;
 	margin: auto;
 	background: rgba(0,0,0,.5);
@@ -56,7 +57,7 @@ header{
 .info-container{
 	width: 80%;
 	margin: auto;
-	padding-top: 30px;
+	padding: 0 10%;
 }
 
 #main{ 
@@ -137,7 +138,14 @@ canvas#canvastree {
 	width: 200px;
 }
 
-@media (min-width: 600px){
+@media (min-width: 460px){
+	.another-div{
+		width: 80%;
+		padding: 0;
+	}
+}
+
+@media (min-width: 780px){
 
 	header{
 		width: 100%;
@@ -225,7 +233,12 @@ canvas#canvastree {
 }
 
 .contains-calendar-day > .calendarWDay:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
+  
+}
+
+.contains-calendar-day:hover .calendarWDay:before{
+	text-decoration: underline;
+	visibility: visible;
+ 	 -webkit-transform: scaleX(1);
+  	transform: scaleX(1);
 }
