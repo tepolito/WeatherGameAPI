@@ -151,14 +151,14 @@ function watchCalendarClick()
 
 function reset()
 {
-	$('#canvastree').onClick(function(event){
+	$('#canvastree').on('click', function(event){
 		$('.js-calendar-info').hide();
 		$('.today-container').hide();
 		$('.city').hide();
 		$('.info-container').show();
 		$('.location-form').show();
 
-	})
+	});
 }
 
 function startGame()
