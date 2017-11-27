@@ -151,7 +151,7 @@ function watchCalendarClick()
 
 function reset()
 {
-	$('#canvastree').onclick(function(event){
+	$('#canvastree').onClick(function(event){
 		$('.js-calendar-info').hide();
 		$('.today-container').hide();
 		$('.city').hide();
