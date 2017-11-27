@@ -112,6 +112,7 @@ function createToday()
 	skyconsBig.play();
 	changeCurrentDay(index);
 	//scrollCalendar();
+	reset();
 	watchCalendarClick();
 	index++;
 }
@@ -146,12 +147,13 @@ function watchCalendarClick()
 		changeCurrentDay(ind);
 		//changeBackground(ind);
 		init();
+		reset();
 	})
 }
 
 function reset()
 {
-	$('#canvastree').on('click', function(event){
+	$('header').on('click', function(event){
 		$('.js-calendar-info').hide();
 		$('.today-container').hide();
 		$('.city').hide();
