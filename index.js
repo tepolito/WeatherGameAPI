@@ -149,6 +149,18 @@ function watchCalendarClick()
 	})
 }
 
+function reset()
+{
+	$('#canvastree').onclick(function(event){
+		$('.js-calendar-info').hide();
+		$('.today-container').hide();
+		$('.city').hide();
+		$('.info-container').show();
+		$('.location-form').show();
+
+	})
+}
+
 function startGame()
 {
 	createToday();
